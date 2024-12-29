@@ -1,0 +1,47 @@
+body {
+  background: #fff;
+	color: #00000;
+	border: #026564;
+	border: #033239;
+}
+
+h1 {
+    text-align:center;
+    color: white;
+    font-family: "Menlo";
+}  
+
+p {
+    color: white;
+    font-family: "Menlo";
+}
+
+
+/* cursors*/
+body {
+  cursor: url('customcursor.png') , auto;
+  }
+  
+  
+a {
+
+	cursor: url('custompointer.png'), auto;
+	}
+	
+	a:hover {
+	
+	cursor: url('custompointer.png'), auto;
+	}
+	a:active {
+	
+	cursor: url('custompointer.png'), auto;
+	}
+	
+  a:visited {
+    color:blue;
+	}
+
+
+
+
+
