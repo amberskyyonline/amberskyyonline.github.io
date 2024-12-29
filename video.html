@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  Plug in website title and tab icon !--> 
+    <title>video</title>
+    <link rel="icon" href="tabicon.png">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  
+  <body>
+  <div id="page-container">
+  <div id="content-wrap">
+  
+  
+   
+
+<div class="dropdown">
+  <button id="drop"  class="dropbtn"> </button>
+  <div id="myDropdown" class="dropdown-content">
+
+    <hr class="solid">
+      <div class="navbar">
+ <hr class="solid">
+<a href="/index"> <button id="button" class="dropbtn" >home </button></a>   
+  <hr class="solid">
+<a href="/video"> <button id="button" class="dropbtn" >video </button></a>   
+  <hr class="solid">
+  <a href="/images"> <button id="button"  class="dropbtn">images </button></a>   
+  <hr class="solid">
+  <a href="/text"> <button id="button"  class="dropbtn">text </button></a> 
+  <hr class="solid">
+  <a href="/blog"> <button id="button"  class="dropbtn">blog </button></a> 
+ 
+  </div>
+</div>
+
+
+</div>
+
+
+     <div id="content">
+      
+     
+  <div id="box">
+    
+<div id="vid" fetchpriority="high">
+
+
+   
+<script src="video_player.js"></script>
+   <center>
+   <figure id="video_player">
+    <video id="videoplayervid"  playsinline controls loop  preload="metadata"><source src="/videos/video1.mp4" type="video/mp4"></video>
+
+ <div id="container">
+     <ul ID="list"   >
+
+ <!--  Plug in videos that you want to play. To add more duplicate what you see! !--> 
+
+      <a href="/videos/video1.mp4" class="link" loading="lazy">video #1</a> &nbsp;
+      <a href="/videos/video2.mp4" class="link" loading="lazy">video #2</a> &nbsp;
+      <a href="/videos/video3.mp4" class="link" loading="lazy">video #3</a> &nbsp;
+      <a href="/videos/video4.mp4" class="link" loading="lazy">video #4</a> &nbsp;
+      <a href="/videos/video5.mp4" class="link" loading="lazy">video #5</a> &nbsp;
+     </ul>
+ </div>
+ </figure>
+ 
+   </center>
+        
+        
+ 
+</div>
+</div>
+</div>        
+        
+
+ 
+ 
+
+<!-- Plug in footer text !-->
+    <div class="footer"><p>footer text</p></div>
+</div>
+    <script>
+  /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+document.getElementById("drop").addEventListener("click", function(e) {
+  document.getElementById("myDropdown").classList.toggle("show");
+});
+
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    document.querySelectorAll(".dropdown-content.show")
+      .forEach(openDropdown => openDropdown.classList.remove('show'))
+  }
+});
+</script>
+
+
+
+<style>
+
+#videoplayervid {
+   display: inline;
+   margin:0 auto;
+   top: 50%;
+   left: 50%;
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   text-align: center;
+   max-width: 70%;
+   position: absolute;
+   z-index: -99;
+}
+
+ #drop {
+  background-position:center; 
+  background-image: url('button.png');
+  width:6.2vw; 
+  height:6.2vw; 
+  border:none; 
+  top:2.5vh;
+  left: 2vw;
+  position: absolute;
+ }
+
+
+#list{
+ margin:0 auto;
+ left:0;
+ right:0;
+ font-size:2.2vh;
+ padding:2%;
+}
+
+#container{
+  position:absolute;
+ bottom:100%; 
+  margin:0 auto;
+ left:0;
+ right:0;
+}
+
+.navbar{  
+      z-index: 99;
+    position: relative;
+    display: inline-block;
+    top: 9vh;
+    right: 0;
+    background-color: white;
+    color: black;
+    vertical-align: middle;
+    height: 100vh;
+} 
+
+
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 80px;    /* Footer height */
+}
+
+
+.footer{  
+  display:block;
+  z-index:50;
+  position: relative;
+  padding-top:1%;
+  top:260px;
+  left:0;
+  right:0;
+  width:100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 80px;
+}
+
+    
+  
+
+  
+
+
+
+
+
+ #text-container{
+   padding:3%;
+   width:100%;
+   
+   
+ }
+
+ /* Change and or add background image to the content container with "#box" */
+  #box {  
+top:16vh;
+    z-index:99;
+    left:24%;
+  width:64.2vw;
+  height:71vh;
+  display:block;
+  position: relative;
+  color: white;
+  background-color: black;
+  border: 2px solid #e1e8e2;
+  text-align:center;
+  border-radius: 5%;
+  padding:3%;
+  vertical-align: middle;
+}
+
+ 
+
+ul {
+  display: table;
+  margin: 0 auto;
+}
+
+
+  marquee{
+  font-size: 30px;
+  font-weight: 100;
+}
+      
+      
+ 
+ #button{
+   
+   
+   
+ }
+ 
+ 
+ .dropbtn {
+  text-align:center; 
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 4vh;
+  border-radius: 2px;
+  cursor: url(custompointer.png), auto;
+  transition-duration: 0s;
+  /*must change manually to match css stylesheet body font*/
+  font-family: "Menlo";
+  
+}
+
+  .dropbtn:hover {
+  background-color: black; 
+  color: white;
+}
+
+  .cursor {
+  cursor: url(customcursor.png), auto;
+  height: 350px;
+  width: 25%;
+  left: 200px;
+  position: absolute;
+  z-index: 99;
+
+}
+
+  .dropdown {
+  position: relative;
+  left: ;
+  display: inline;
+  cursor: url(customcursor.png), auto; 
+}
+
+  .dropdown-content {
+display: none;
+    position: absolute;
+    left: 1%;
+    top: 15px;
+    background-color: #fff;
+}
+
+  .dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+/* edit dropdown */
+  hr.solid {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom:  1px solid #fff;
+}
+
+  .show {
+  display: block;
+}
+ 
+ 
+
+  .menu {
+  padding:5px;
+  padding-top:10px;  
+} 
+ 
+ /* Change background color or add pattern */ 
+  body {
+  background:white;
+  background-size:100%;
+  background-image: url('backgroundimagefilename.png');
+  background-repeat: repeat;
+  font-family: "Menlo";
+}
+
+ h1{
+   text-align:center;
+   font-family: "Menlo";
+ }
+ 
+ p{
+ font-family: "Menlo";
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+p #button.dropbtn{
+text-align:left; 
+  
+  
+  
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+  .navbar{
+ margin:0 auto;
+ } 
+} 
+
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+  marquee{
+  font-size: 2vh;
+  font-weight: 100;
+ } 
+} 
+
+ 
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.footer{  
+ font-size: 1.2vh;
+ top:460px;
+ }
+} 
+ 
+ 
+ @media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  p {  
+  font-size:1.5em;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  h2 {  
+  font-size:0.8em;
+ }
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.dropbtn {
+  width:20vw;
+  font-size: 1.2vh;
+  text-align:center;
+   margin:0 auto;
+  padding: 5px 3px;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+ #drop {
+  background-position:center; 
+  background-image: url('button.png');
+  width:10vw; height:30vw; border:none; top:3vh; left: 1vw;
+    position: absolute;
+  
+ }
+
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  p.maintext {  
+  font-size:0.4em;
+ }
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+#list {
+  position:absolute;
+  left:1%;
+  top:45vh;
+  font-size:1.2vh;
+  display:table-row;
+  margin: 0 auto;
+  
+ }
+} 
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  #box {  
+  
+top:16vh;
+    z-index:99;
+    left:24%;
+  width:64.2vw;
+  height:40vh;
+  display:block;
+  position: relative;
+  color: white;
+  background-color: black;
+  border: 2px solid #e1e8e2;
+  text-align:center;
+  border-radius: 5%;
+  padding:3%;
+  vertical-align: middle;
+}
+}
+
+
+      
+      
+
+</style>
+
+
+
+</body>
+</html>
