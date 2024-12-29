@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website title</title>
+    <link rel="icon" href="tabicon.png">
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+
+  </head>
+  
+  <body>
+  <div id="page-container">
+  <div id="content-wrap">
+   <!--1400px x 200px banner-->
+  <div id="banner">
+<a href="index"> <img src='banner1.png' style="
+width:100%; height:100%; object-fit: fill; ">  </a>
+  </div>
+   
+
+    <div class="navbar">
+
+
+<a href="index"> <button id="button" class="dropbtn">home </button></a>
+
+
+ <!--Dropdown button. Duplicate what you see to add more!-->
+<div class="dropdown">
+  <button id="drop" class="dropbtn">gallery </button>
+  <div id="myDropdown" class="dropdown-content">
+    <hr class="solid">
+    <a href="/gallery">Section 1</a>
+    <hr class="solid">
+    <a href="/gallery2">Section 2</a>
+    <hr class="solid">
+  </div>
+</div>
+
+
+
+<a href="contact"> <button id="button" class="dropbtn">contact</button></a>
+
+
+
+<a href="blog"> <button id="button" class="dropbtn">blog </button></a>
+
+
+
+<!--add link to your bigcartel or whatever you use-->
+<a href="shopurl"> <button id="button" class="dropbtn" >shop </button></a>
+
+
+
+ <a href="webring"> <button id="button" class="dropbtn" >webring </button></a>
+
+
+ </div> 
+
+ <marquee bgcolor="#e8e8e8" class="scrolla">message</marquee>
+
+     <div id="content">
+      
+  <div id="welcome">
+     <!-- Fill in text here -->  
+  <h1> welcome to my site! </h1>
+  <p class="maintext"> here is information! blah blah blah blah blah blah blah blah blah blah blah blah.. </p>
+  
+  </div>
+
+    
+  <div id="announcements">
+  <div class="text-container">
+   <!-- Fill in text/media here -->  
+   <h1> announcements </h1>
+   
+   <p class="maintext"> blah blah blah blah blah blah blah blah blah blah blah blah blah.. you'll be able to find it <a href="https://en.wikipedia.org/wiki/Trilobite"> here..</a> </p>
+   
+ <img id="announcementgif" src="/images/cat-soup.gif">
+   
+  </div>
+  </div>
+     
+  
+  <div id="recentwork">
+  <div class="text-container">
+  <h1> recent Work </h1>
+
+   <!-- Fill in media here --> 
+
+   <div class="gallery">
+<a target="_blank" href="/images/image1.jpeg">
+    <img src="/images/image1.jpeg" alt="dog in me"> </a>
+    <div class="desc">Image Example</div>
+</div>
+
+<div class="gallery">
+<a target="_blank" href="/videos/Im Firing My Lazer.mp4">
+    <img src="/videos/videothumbnail.png" alt="Firin mah lazer"> </a>
+    <div class="desc">Video Example</div>
+</div>
+
+<div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+  
+  
+  </div>
+  </div>
+ 
+</div>        
+        
+<div id="content2">       
+  <div id="importantstuff">
+  <div class="text-container">
+    <!-- Fill in text/media here -->  
+  <h1 style="color:black;"> important stuff</h1>
+  
+ <p class="maintext" style="color:black;"> hello! heres some relevant information or cool stuff about me. </p> 
+  
+ <ul>
+  <li>coffee</li>
+  <li>tea</li>
+  <li>milk</li>
+  <li>eggs</li>
+  <li>bread</li>
+</ul>
+  
+  </div>
+  </div>      
+  
+</div>
+ 
+ 
+
+</div>
+    <div class="footer"><p>footer</p></div>
+</div>
+    <script>
+  /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+document.getElementById("drop").addEventListener("click", function(e) {
+  document.getElementById("myDropdown").classList.toggle("show");
+});
+
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    document.querySelectorAll(".dropdown-content.show")
+      .forEach(openDropdown => openDropdown.classList.remove('show'))
+  }
+});
+</script>
+
+
+
+<style>
+   /* Change navbar colors, size, font, etc. */
+.navbar{  
+  z-index:99;
+  position: relative;
+  top:10%;
+  right:0;
+  width:100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  vertical-align:middle;
+  height: 9%;
+  padding-top:10px;
+  padding-bottom:10px;
+  
+} 
+
+
+
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 80px;    /* Footer height */
+}
+
+
+.footer{  
+  display:block;
+  z-index:50;
+  position: relative;
+  padding-top:1%;
+  left:0;
+  right:0;
+  width:100%;
+  background-color: grey;
+  color: black;
+  text-align: center;
+  height: 80px;
+}
+
+
+
+/* Change colors or add backgrounds for area behind announcements and recent work sections*/
+  #content { 
+  height: 120vh;
+  position: relative;
+  background-image: url(bgrepeat.png);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: repeat;
+}
+
+/*  Change colors or add backgrounds for area behind important stuff section*/
+ #content2 { 
+  vertical-align:top; 
+  width: 100%;
+  height:52vh;
+  position: relative;
+}
+
+ #text-container{
+   padding:3%;
+   position:absolute;
+   word-wrap: break-word; 
+   
+ }
+
+/*  Change colors or add backgrounds for welcome section*/
+  #welcome { 
+  padding:2%;  
+  margin: 0 auto;
+  top: 5vh;
+  left: 0;
+  right: 0;
+  color: white;
+  background-color: black;
+  border: 2px solid #e1e8e2;
+  text-align:center;
+}
+
+/*  Change colors or add backgrounds for announcements section*/
+  #announcements { 
+  padding: 2%;
+  vertical-align: top;
+  border-radius: 25px;
+  display: block;
+  width: 33%;
+  position: absolute;
+  top: 28vh;
+  left: 2vw;
+  right: 80%;
+  background-color: #7fc7b8;
+  border: 2px solid black;
+}
+
+/*  Change size, dimensions, and placement of the image in #announcements*/
+#announcementgif{
+ width:100%;
+ left:0;
+ right:0;
+ margin:0 auto; 
+}
+
+/*  Change colors or add backgrounds for recent work section*/
+#recentwork { 
+  display:table;
+  padding: 2%;
+  vertical-align: top;
+  border-radius: 25px;
+  width: 53%;
+  position: absolute;
+  top: 28vh;
+  right: 2vw;
+  background-color: black;
+  border: 2px solid #7fc7b8;
+  color: white;
+  justify-content: space-evenly;
+}
+
+
+.gallery {
+  float:left;
+	position: relative;
+	left:3vw;
+	width: 24vh;
+	height:20vh;
+	margin-top: 8vh;
+	margin-bottom: 10vh;
+	margin-right: 6vh;
+	border: 1px solid #ccc;
+	
+ 
+  
+
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+  box-shadow: 5px 8px; #FFF
+}
+
+.gallery img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+
+.desc {
+	display: block;
+	position: absolute;
+	top: 130%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+  color:white;
+  overflow:visible;
+}
+
+      
+
+
+#importantstuff { 
+  padding:2%;  
+  border-radius: 25px;
+  border: 2px solid #7fc7b8;
+  position:absolute;  
+  display:block;
+  width:88vw;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  background-color: #fff;
+  text-align:center;
+}
+
+ul {
+  display: table;
+  margin: 0 auto;
+}
+
+
+  marquee{
+  font-size: 30px;
+  font-weight: 100;
+}
+      
+      
+    
+ 
+ 
+ .dropbtn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 2.5vh;
+  border-radius: 2px;
+  cursor: url(custompointerfilename.png), auto;
+  transition-duration: 0.0;
+  /*must change manually to match css stylesheet body font*/
+  font-family: "Menlo";
+}
+
+  .dropbtn:hover {
+  background-color: black; 
+  color: white;
+}
+
+  .cursor {
+  cursor: url(customcursorfilename.png), auto;
+  height: 350px;
+  width: 25%;
+  left: 200px;
+  position: absolute;
+  z-index: 99;
+
+}
+
+  .dropdown {
+  position: relative;
+  display: inline;
+  cursor: url(customcursorfilename.png), auto; 
+}
+
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 1%;
+  top: 10px;
+  background-color: #fff;
+  width: 93%;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+  .dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+}
+
+/* edit dropdown */
+  hr.solid {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom:  1px solid #fff;
+}
+
+  .show {
+  display: block;
+}
+ 
+ 
+
+  .menu {
+  padding:5px;
+  padding-top:10px;  
+} 
+ 
+ /* edit background color, add patterns, etc. */
+  body {
+  background:black;
+  background-size:100%;
+  background-image: url('backgroundimagefilename.png');
+  background-repeat: repeat;
+  font-family: "Menlo";
+}
+
+ h1{
+   text-align:center;
+ }
+ 
+ 
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+  marquee{
+  font-size: 2vh;
+  font-weight: 100;
+ } 
+} 
+ 
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.footer{  
+ font-size: 1.5vh;
+ }
+} 
+ 
+ 
+ @media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  h1 {  
+  font-size:0.8em;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  h2 {  
+  font-size:0.8em;
+ }
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.dropbtn {
+  font-size: 1.5vh;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+ .dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.5vh;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  p.maintext {  
+  font-size:0.4em;
+ }
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+ul {
+  font-size:0.4em;
+  display: table;
+  margin: 0 auto;
+ }
+} 
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  #content { 
+  height: 86vh;
+  position: relative;
+  background-image: url(bgrepeat.png);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: repeat;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+ #content2 { 
+  vertical-align:top; 
+  width: 100%;
+  height:28vh;
+  position: relative;
+ }
+}     
+      
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/      
+#announcements { 
+  padding: 2%;
+  vertical-align: top;
+  border-radius: 25px;
+  display: block;
+  width: 31%;
+  position: absolute;
+  top: 15vh;
+  left: 1vw;
+  right: 80%;
+  background-color: #7fc7b8;
+  border: 2px solid black;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+#recentwork { 
+  display:table;
+  padding: 2%;
+  vertical-align: top;
+  border-radius: 25px;
+  width: 55%;
+  position: absolute;
+  top: 15vh;
+  right: 1vw;
+  background-color: black;
+  border: 2px solid #7fc7b8;
+  color: white;
+ }      
+}      
+   
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+  .gallery {
+  float:left;
+	position: relative;
+	left:12vw;
+	width: 15vh;
+	height:12vh;
+	margin-top: 2vh;
+	margin-bottom: 6vh;
+	margin-right: 6vh;
+	border: 1px solid #ccc;
+ }
+}  
+
+  @media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+  div.gallery:hover {
+  border: 1px solid #777;
+  box-shadow: 3px 4px; #FFF
+ }
+}
+  
+ @media screen and (max-width: 700px) { /* Specific to this particular element on phones*/ 
+  .desc {
+	display: block;
+	position: absolute;
+	top: 125%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+  font-size:0.4em;
+  color:white;
+  overflow:visible;
+  }
+} 
+      
+  @media screen and (max-width: 700px) { /* Specific to this particular element on phones*/     
+  #importantstuff { 
+  padding:2%;  
+  border-radius: 25px;
+  border: 2px solid #7fc7b8;
+  position:absolute;  
+  display:block;
+  width:88vw;
+  top: 6vh;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  background-color: #fff;
+  text-align:center;
+ }    
+}     
+      
+      
+      
+</style>
+
+
+
+</body>
+</html>
