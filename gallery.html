@@ -1,332 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>musik</title>
-    <link rel="icon" href="tabicon.png"> <!-- insert tab icon -->
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-  </head> 
+    <link
+      rel="shortcut icon"
+      href="https://3.imimg.com/data3/YM/UN/MY-2895570/1-500x500.png"
+      type="image/png"
+    />
+    <script
+      src="https://kit.fontawesome.com/527f71ab58.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="js/powerswitch.js"></script>
+    <script defer src="js/navigation.js"></script>
+    <script defer src="js/showcontrols.js"></script>
+    <script defer src="js/coverflow.js"></script>
+    <script defer src="js/music.js"></script>
+    <script defer src="js/sleep.js"></script>
+  </head>
   <body>
-  <div id="page-container">
-  <div id="content-wrap">
-     <!--1400px x 200px -->
-  <div id="banner">
- <a href=""> <img src= style="
-width:100%; height:100%; object-fit: fill; "> </a>
-  </div>
-
-
-
-     <div class="navbar">
-
-
-<a href="index"> <button id="button" class="dropbtn">home </button></a>
-
-
-
-<div class="dropdown">
-  <button id="drop" class="dropbtn">gallery </button>
-  <div id="myDropdown" class="dropdown-content">
-    <hr class="solid">
-    <a href="/gallery">Section 1</a>
-    <hr class="solid">
-    <a href="/gallery2">Section 2</a>
-    <hr class="solid">
-  </div>
-</div>
-
-
-
-<a href="contact"> <button id="button" class="dropbtn">contact</button></a>
-
-
-
-<a href="blog"> <button id="button" class="dropbtn">blog </button></a>
-
-
-
-<!--add link to your bigcartel or whatever you use-->
-<a href="shopurl"> <button id="button" class="dropbtn" >shop </button></a>
-
-
-
- <a href="webring"> <button id="button" class="dropbtn" >webring </button></a>
-
-
- </div> 
-
-
- <div id="content">
- 
- <!-- Each gallery page can hold up to 16 items. Delete and duplicate to change the number of media slots on page.-->
- 
- 
- </div>
- 
-
-</div>
-<div
-</div>
-    <script>
-  /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
-document.getElementById("drop").addEventListener("click", function(e) {
-  document.getElementById("myDropdown").classList.toggle("show");
-});
-
-
-// Close the dropdown if the user clicks outside of it
-window.addEventListener("click", function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    document.querySelectorAll(".dropdown-content.show")
-      .forEach(openDropdown => openDropdown.classList.remove('show'))
-  }
-});
-</script>
-
-
-<style>
-  .navbar{  
-  z-index:99;
-  position: relative;
-  top:10%;
-  right:0;
-  width:100%;
-  background-color: ;
-  color: white;
-  text-align: center;
-  vertical-align:middle;
-  height: 9%;
-  padding-top:10px;
-  padding-bottom:10px;
-  
-} 
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 80px;    /* Footer height */
-}
-
-
-
-
-
-
-
-
-
-  #content { 
-  z-index:99;
-  height:100%;
-  display:table;
-  padding-bottom:90px;
-}
-
-
-
-      
-      
-      
-
- 
- 
- 
- .dropbtn {
-  border: 2px solid black;
-  background-color: white;
-  color: black;
-  padding: 10px 20px;
-  font-size: 2.5vh;
-  border-radius: 2px;
-  cursor: url(custompointerfilename.png), auto;
-  transition-duration: 0.0s;
-  /*must change manually to match css stylesheet body font*/
-  font-family: "Menlo";
-}
-
-  .dropbtn:hover {
-  background-color: black; 
-  color: white;
-}
-
-  .cursor {
-  cursor: url(customcursorfilename.png), auto;
-  height: 350px;
-  width: 25%;
-  left: 200px;
-  position: absolute;
-  z-index: 99;
-
-}
-
-  .dropdown {
-  position: relative;
-  display: inline;
-  cursor: url(customcursorfilename.png), auto; 
-}
-
-  .dropdown-content {
-  display: none;
-  position: absolute;
-  left: 0%;
-  top: 10px;
-  background-color: #fff;
-  width: 93%;
-  z-index: 1;
-  margin-top: 20px;
-  
-}
-
-  .dropdown-content a {
-  color: black;
-  padding: 5px 5px;
-  text-decoration: none;
-  display: block;
-}
-/* edit dropdown */
-  hr.solid {
-  border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
-  border-top: 1px solid #fff;
-  border-bottom:  1px solid #fff;
-}
-
-  .show {
-  display: block;
-}
- 
- 
-
-  .menu {
-  padding:5px;
-  padding-top:10px;  
-} 
- 
- /* edit background color, add patterns, etc. */
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-  }
-
-
- 
- 
- .gallery {
-
-	position: relative;
-	width: 35.5vh;
-	height:23vh;
-	margin-top: 14vh;
-	margin-right: 6vh;
-	border: 1px solid #ccc;
-	float: left;
-  left:5vw;
-  
-
-}
-
-div.gallery:hover {
-  border: 1px solid #fff;
-}
-
-.gallery img {
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-}
-
-
-.desc {
-	display: block;
-	position: absolute;
-	top: 120%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-  color:white;
-  overflow:visible;
-}
-
-
-@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
-.footer{  
- font-size: 1.5vh;
- }
-}
-
-@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
-.dropbtn {
-  font-size: 1.5vh;
- }
-}
-
-@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
- .dropdown-content a {
-  color: black;
-  padding: 5px 5px;
-  text-decoration: none;
-  display: block;
-  font-size: 1.5vh;
- }
-}
-      
-@media only screen and (max-width: 700px) {
-.gallery {
-  position: relative;
-	width: 35%;
-  translate: 6% 0%;
-	height: 100px;
-	margin-top: 8vh;
-	border: 1px solid #ccc;
-	float: left;
-  top:5%;
-  
-  }
-}      
-
-@media only screen and (max-width: 700px) {
-.desc {
- font-size: 1.7vh;
- }
-}
-
-@media only screen and (max-width: 700px) {
- #content { 
-  z-index:99;
-  height:100%;
-  display:table;
-  padding-bottom:45px;
- }
-} 
-      
-      
-      
-</style>
-
-
-
-</body>
+    <div class="nav-items">
+      <i class="fas fa-power-off power-btn"></i>
+      <i class="fas fa-question help-btn"></i>
+      <i class="fas fa-close close-instruction-window"></i>
+    </div>
+    <div class="how-to-use">
+      <h1>How To Use ?</h1>
+      <p>
+        <strong>Note :</strong> iPod will sleep if you switch to another tab to
+        reduce load on browser.
+      </p>
+      <div class="what-btn">
+        <i class="fas fa-power-off"></i>
+        <div class="show-instructions-btn">
+          <i class="fas fa-question help-btn"></i>
+          /
+          <i class="fas fa-close"></i>
+        </div>
+        <div class="help-btn">Menu</div>
+        <p>Single Click</p>
+        <p>Double Click</p>
+        <i class="fa-solid fa-forward-fast"></i>
+        <i class="fa-solid fa-backward-fast"></i>
+        <div class="ico-play-pause">
+          <i class="fa-solid fa-play"></i>
+          <i class="fa-solid fa-pause"></i>
+        </div>
+        <p><strong>(keyboard)</strong> ArrowDown</p>
+        <p><strong>(keyboard)</strong> ArrowUp</p>
+        <p><strong>(keyboard)</strong> Enter / Return</p>
+        <p><strong>(keyboard)</strong> Backspace</p>
+      </div>
+      <div class="what-it-does">
+        <p>Power On / Off</p>
+        <p>Open / Close this window</p>
+        <p>Go Back / To Menu</p>
+        <p>Select</p>
+        <p>Open</p>
+        <p>Next Song / Forward Fast</p>
+        <p>Previous Song / Backward Fast</p>
+        <p>Play / Pause</p>
+        <p>Navigate Downward</p>
+        <p>Navigate Upward</p>
+        <p>Select / Play</p>
+        <p>Go Back / To Menu</p>
+      </div>
+    </div>
+    <div class="ipod">
+      <div class="screen">
+        <div class="bootscreen">
+          <i class="fab fa-apple"></i>
+        </div>
+        <div class="status-bar">
+          <p id="status">iPod</p>
+          <div class="status-icons">
+            <i class="fa-solid fa-pause play-pause-status"></i>
+            <i class="fa-solid fa-battery"></i>
+          </div>
+        </div>
+        <div class="preview-screen"></div>
+        <div class="flex-screen">
+          <div
+            class="menu-items"
+            title="click to preview | double-click to open"
+          >
+            <div id="music" class="menu-item" data-index="0" data-brief="">
+              Music
+            </div>
+            <!-- <div id="videos" data-index="1">Videos</div>
+            <div id="photos" data-index="2">Photos</div> -->
+            <div
+              id="podcasts"
+              class="menu-item"
+              data-index="1"
+              data-brief="No Podcasts"
+            >
+              Podcasts
+            </div>
+            <!-- <div id="extras" data-index="4">Extras</div>
+            <div id="settings" data-index="5">Settings</div> -->
+            <div
+              id="shuffle-songs"
+              class="menu-item"
+              data-index="2"
+              data-brief="Shuffle and play"
+            >
+              Shuffle Songs
+            </div>
+            <!-- <div
+              id="settings"
+              class="menu-item"
+              data-index="3"
+              data-brief="Available soon..."
+            >
+              Settings
+            </div> -->
+            <div
+              id="now-playing"
+              (keyboard)
+              class="menu-item"
+              data-index="3"
+              data-brief=""
+            >
+              Now Playing
+            </div>
+          </div>
+        </div>
+
+        <div class="music-screen menu-item-screen">
+          <div class="menu-items" title="click to select | Scroll to see more">
+            <div class="songs" id="song-1" data-index="0">
+              Nothing Else Matters - Metallica
+            </div>
+            <div class="songs" id="song-2" data-index="1">
+              WASTE - Kxllswxtch
+            </div>
+            <div class="songs" id="song-3" data-index="2">
+              Heartless - The Weeknd
+            </div>
+            <div class="songs" id="song-4" data-index="3">
+              Glimpse Of Us - Joji
+            </div>
+            <div class="songs" id="song-5" data-index="4">One - Metallica</div>
+            <div class="songs" id="song-6" data-index="5">
+              Reflections - The Neighborhood
+            </div>
+            <div class="songs" id="song-7" data-index="6">
+              Is There Someone Else - The Weeknd
+            </div>
+            <div class="songs" id="song-8" data-index="7">
+              Tere Nainon Mein - The Bilz And Kashif
+            </div>
+            <div class="songs" id="song-9" data-index="8">
+              Pehli Nazar Mein - Atif Aslam
+            </div>
+            <div class="songs" id="song-10" data-index="9">Zara Sa - KK</div>
+            <div class="songs" id="song-11" data-index="10">
+              Tumhe Jo Maine Dekha - Abhijeet Bhattacharya, Shreya Ghoshal
+            </div>
+            <div class="songs" id="song-12" data-index="11">
+              Yeh Ek Zindagi - Anupama Chakraborty, Achint
+            </div>
+          </div>
+        </div>
+
+        <div class="shuffle-play-screen menu-item-screen work-in-progress">
+          <div class="">Work in Progress...</div>
+        </div>
+        <div class="now-playing-screen menu-item-screen work-in-progress">
+          <div class="">Work in Progress...</div>
+        </div>
+        <div class="music-player">
+          <div class="song-div">
+            <img class="album-art" src="music/music-icon.png" alt="" />
+
+            <div class="info">
+              <div>
+                <h4 class="song-title song-info">No songs added</h4>
+                <p class="artist song-info"></p>
+              </div>
+
+              <p id="song-count"></p>
+            </div>
+          </div>
+
+          <div class="progress-div">
+            <div class="current-time">0:00</div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+            <div class="total-duration">-0:00</div>
+          </div>
+
+          <audio id="current-song" src=""></audio>
+        </div>
+        <div class="menu-item-brief"></div>
+        <div class="song-title-preview menu-item-brief"></div>
+        <div class="song-artist-preview menu-item-brief"></div>
+      </div>
+      <div class="button-ring">
+        <div id="menu-btn" class="control-btn">menu</div>
+        <div id="forwards-btn" class="control-btn">
+          <i class="fa-solid fa-forward-fast"></i>
+        </div>
+        <div id="previous-btn" class="control-btn">
+          <i class="fa-solid fa-backward-fast"></i>
+        </div>
+        <div id="play-pause-btn" class="control-btn">
+          <i class="fa-solid fa-play"></i><i class="fa-solid fa-pause"></i>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
