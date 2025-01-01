@@ -56,12 +56,12 @@
           player = new YT.Player('player', {
             height: '0',
             width: '0',
-            videoId: 'YOUR_FIRST_VIDEO_ID', // Replace with the ID of the first video in your playlist
+            videoId: '', // Empty since this is a playlist
             playerVars: {
               'autoplay': 0,
               'controls': 0,
               'loop': 1,
-              'playlist': 'PLQmHpBTi8Ho5FAeRD4BemZbw5FHit2CVQ', // Replace with your playlist ID
+              'playlist': 'PLQmHpBTi8Ho5FAeRD4BemZbw5FHit2CVQ' // Your Playlist ID
             },
             events: {
               'onReady': onPlayerReady,
@@ -86,7 +86,7 @@
           overflow: hidden;
         }
       </style>
- </div>
+    </div>
 
 <style>
   .navbar{  
