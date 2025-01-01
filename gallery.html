@@ -31,63 +31,7 @@
 <a href="shopurl"> <button id="button" class="dropbtn" >shop </button></a>
 <a href="webring"> <button id="button" class="dropbtn" >webring </button></a>
  </div> 
-   <!-- Clickable GIF Section -->
-        <div style="text-align: center; margin-top: 20px;">
-          <img 
-            src="https://external-media.spacehey.net/media/svoF1kd_Y5JAkygxEjocLxzKdSAbQFZsekyk0_XRzdls=/https://i.pinimg.com/originals/2c/13/79/2c137988f5a8b8c7d85567a699d72229.gif" 
-            height="200" 
-            alt="Click to Play Audio"
-            style="cursor: pointer;" 
-            id="startPlayback">
-        </div>
-
-        <!-- Hidden YouTube Video Section -->
-        <div id="hiddenVideoContainer" style="display: none;">
-          <div id="player"></div>
-        </div>
-
-      </div>
-
-      <script>
-        let player;
-
-        // Load the YouTube IFrame Player
-        function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-            height: '0',
-            width: '0',
-            videoId: '', // Empty since this is a playlist
-            playerVars: {
-              'autoplay': 0,
-              'controls': 0,
-              'loop': 1,
-              'playlist': 'PLQmHpBTi8Ho5FAeRD4BemZbw5FHit2CVQ' // Your Playlist ID
-            },
-            events: {
-              'onReady': onPlayerReady,
-            }
-          });
-        }
-
-        // Trigger playback on GIF click
-        function onPlayerReady(event) {
-          document.getElementById('startPlayback').addEventListener('click', function() {
-            player.playVideo();
-            alert('Audio playback started!');
-          });
-        }
-      </script>
-
-      <style>
-        /* Ensure hidden video player takes no visible space */
-        #player {
-          width: 0;
-          height: 0;
-          overflow: hidden;
-        }
-      </style>
-    </div>
-
+   
 <style>
   .navbar{  
   z-index:99;
@@ -325,39 +269,7 @@ div.gallery:hover {
 } 
 
       
-      
-</style>
- 
-<div style="max-height: 300px; position: fixed; left: 20px; bottom: 0px; z-index: 99;">
-<img src="https://external-media.spacehey.net/media/svoF1kd_Y5JAkygxEjocLxzKdSAbQFZsekyk0_XRzdls=/https://i.pinimg.com/originals/2c/13/79/2c137988f5a8b8c7d85567a699d72229.gif" height="200"/ loading="lazy"></div>
 
-
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  let player;
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '0',
-      width: '0',
-      playerVars: {
-        'autoplay': 0,
-        'controls': 0,
-        'loop': 1,
-        'playlist': 'PLQmHpBTi8Ho5FAeRD4BemZbw5FHit2CVQ'
-      },
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-
-  function onPlayerReady(event) {
-    document.getElementById('startPlayback').addEventListener('click', function() {
-      player.playVideo();
-    });
-  }
-</script>
 
 </body>
 </html>
