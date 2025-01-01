@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test YouTube Playlist</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </head>
+  <body>
+    <!-- Clickable GIF -->
+    <div style="text-align: center; margin-top: 20px;">
+      <img 
+        src="https://external-media.spacehey.net/media/svoF1kd_Y5JAkygxEjocLxzKdSAbQFZsekyk0_XRzdls=/https://i.pinimg.com/originals/2c/13/79/2c137988f5a8b8c7d85567a699d72229.gif" 
+        height="200" 
+        alt="Click to Play Audio"
+        style="cursor: pointer;" 
+        id="startPlayback">
+    </div>
+
+    <!-- YouTube Player -->
+    <div id="player"></div>
+
+    <script>
+      let player;
+
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '0',
+          width: '0',
+          playerVars: {
+            'autoplay': 0,
+            'controls': 0,
+            'loop': 1,
+            'playlist': 'PLQmHpBTi8Ho5FAeRD4BemZbw5FHit2CVQ'
+          },
+          events: {
+            'onReady': onPlayerReady,
+            'onError': onPlayerError
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        document.getElementById('startPlayback').addEventListener('click', function() {
+          player.playVideo();
+          alert('Audio playback started!');
+        });
+      }
+
+      function onPlayerError(event) {
+        alert('Error playing playlist: ' + event.data);
+        console.error('YouTube Player Error:', event.data);
+      }
+    </script>
+  </body>
+</html>
