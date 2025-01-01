@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>website title</title>
+    <title>musik</title>
     <link rel="icon" href="tabicon.png"> <!-- insert tab icon -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
   </head> 
@@ -11,9 +11,6 @@
   <div id="page-container">
   <div id="content-wrap">
      <!--1400px x 200px -->
-  <div id="banner">
- <a href="gallery"> <img src='gallerybanner.png' style="
-width:100%; height:100%; object-fit: fill; "> </a>
   </div>
 
 
@@ -60,114 +57,8 @@ width:100%; height:100%; object-fit: fill; "> </a>
  <div id="content">
  
  <!-- Each gallery page can hold up to 16 items. Delete and duplicate to change the number of media slots on page.-->
- 
- <div class="gallery">
-<a target="_blank" href="/images/image1.jpeg">
-    <img src="/images/image1.jpeg" alt="dog in me"> </a>
-    <div class="desc">Image Example</div>
-</div>
-
-<div class="gallery">
-<a target="_blank" href="/videos/Im Firing My Lazer.mp4">
-    <img src="/videos/videothumbnail.png" alt="Firin mah lazer"> </a>
-    <div class="desc">Video Example</div>
-</div>
-
-<div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
 
 
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
- <div class="gallery">
-<a target="_blank" href="image/video url">
-    <img src="imagefilename.png" alt="alt text"> </a>
-    <div class="desc">Blank Example</div>
-</div>
-
-
- 
- 
- </div>
- 
-
-</div>
-<div class="footer"><p>footer</p></div>
-</div>
     <script>
   /* When the user clicks on the button, 
     toggle between hiding and showing the dropdown content */
@@ -193,7 +84,7 @@ window.addEventListener("click", function(event) {
   top:10%;
   right:0;
   width:100%;
-  background-color: grey;
+  background-color: ;
   color: white;
   text-align: center;
   vertical-align:middle;
@@ -212,19 +103,8 @@ window.addEventListener("click", function(event) {
 }
 
 
-.footer{  
-  display:block;
-  z-index:50;
-  position: relative;
-  padding-top:1%;
-  left:0;
-  right:0;
-  width:100%;
-  background-color: grey;
-  color: black;
-  text-align: center;
-  height: 80px;
-}
+
+
 
 
 
@@ -319,8 +199,24 @@ window.addEventListener("click", function(event) {
  
  /* edit background color, add patterns, etc. */
   body {
-   background:black;
-   font-family: "Menlo";
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
  }
 
 
