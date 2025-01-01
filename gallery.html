@@ -3,130 +3,425 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>musik</title>
-    <link rel="icon" href="tabicon.png">
+    <title>website title</title>
+    <link rel="icon" href="tabicon.png"> <!-- insert tab icon -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <style>
-      .navbar {
-        z-index: 99;
-        position: relative;
-        top: 10%;
-        right: 0;
-        width: 100%;
-        background-color: ;
-        color: white;
-        text-align: center;
-        vertical-align: middle;
-        height: 9%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-
-      .dropbtn {
-        border: 2px solid black;
-        background-color: white;
-        color: black;
-        padding: 10px 20px;
-        font-size: 2.5vh;
-        border-radius: 2px;
-        cursor: pointer;
-        font-family: "Menlo";
-      }
-
-      .dropbtn:hover {
-        background-color: black;
-        color: white;
-      }
-
-      body {
-        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502, #bc0000);
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-        height: 100vh;
-      }
-
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      #startPlayback {
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-
-      #startPlayback:hover {
-        transform: scale(1.1); /* Slightly enlarges the GIF on hover */
-      }
-
-      #audioPlayer {
-        display: none; /* Hides the audio player */
-      }
-    </style>
-  </head>
+  </head> 
   <body>
-    <div id="page-container">
-      <div id="content-wrap">
+  <div id="page-container">
+  <div id="content-wrap">
+     <!--1400px x 200px -->
+  <div id="banner">
+ <a href="gallery"> <img src='gallerybanner.png' style="
+width:100%; height:100%; object-fit: fill; "> </a>
+  </div>
 
-        <!-- Navbar -->
-        <div class="navbar">
-          <a href="index"><button id="button" class="dropbtn">home</button></a>
-          <div class="dropdown">
-            <button id="drop" class="dropbtn">gallery</button>
-            <div id="myDropdown" class="dropdown-content">
-              <hr class="solid">
-              <a href="/gallery">Section 1</a>
-              <hr class="solid">
-              <a href="/gallery2">Section 2</a>
-              <hr class="solid">
-            </div>
-          </div>
-          <a href="contact"><button id="button" class="dropbtn">contact</button></a>
-          <a href="blog"><button id="button" class="dropbtn">blog</button></a>
-          <a href="shopurl"><button id="button" class="dropbtn">shop</button></a>
-          <a href="webring"><button id="button" class="dropbtn">webring</button></a>
-        </div>
 
-        <!-- Clickable GIF Section -->
-        <div style="text-align: center; margin-top: 20px;">
-          <img 
-            src="https://external-media.spacehey.net/media/svoF1kd_Y5JAkygxEjocLxzKdSAbQFZsekyk0_XRzdls=/https://i.pinimg.com/originals/2c/13/79/2c137988f5a8b8c7d85567a699d72229.gif" 
-            height="200" 
-            alt="Click to Play Audio"
-            id="startPlayback">
-        </div>
 
-        <!-- Hidden Audio Player -->
-        <audio id="audioPlayer" loop>
-          <source src="https://youtu.be/Asy6Cpbtwfs?si=AOnXzbZ5fVGCBo-o" type="audio/mp3">
-          Your browser does not support the audio element.
-        </audio>
+     <div class="navbar">
 
-      </div>
-    </div>
 
+<a href="index"> <button id="button" class="dropbtn">home </button></a>
+
+
+
+<div class="dropdown">
+  <button id="drop" class="dropbtn">gallery </button>
+  <div id="myDropdown" class="dropdown-content">
+    <hr class="solid">
+    <a href="/gallery">Section 1</a>
+    <hr class="solid">
+    <a href="/gallery2">Section 2</a>
+    <hr class="solid">
+  </div>
+</div>
+
+
+
+<a href="contact"> <button id="button" class="dropbtn">contact</button></a>
+
+
+
+<a href="blog"> <button id="button" class="dropbtn">blog </button></a>
+
+
+
+<!--add link to your bigcartel or whatever you use-->
+<a href="shopurl"> <button id="button" class="dropbtn" >shop </button></a>
+
+
+
+ <a href="webring"> <button id="button" class="dropbtn" >webring </button></a>
+
+
+ </div> 
+
+
+ <div id="content">
+ 
+ <!-- Each gallery page can hold up to 16 items. Delete and duplicate to change the number of media slots on page.-->
+ 
+ <div class="gallery">
+<a target="_blank" href="/images/image1.jpeg">
+    <img src="/images/image1.jpeg" alt="dog in me"> </a>
+    <div class="desc">Image Example</div>
+</div>
+
+<div class="gallery">
+<a target="_blank" href="/videos/Im Firing My Lazer.mp4">
+    <img src="/videos/videothumbnail.png" alt="Firin mah lazer"> </a>
+    <div class="desc">Video Example</div>
+</div>
+
+<div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+ <div class="gallery">
+<a target="_blank" href="image/video url">
+    <img src="imagefilename.png" alt="alt text"> </a>
+    <div class="desc">Blank Example</div>
+</div>
+
+
+ 
+ 
+ </div>
+ 
+
+</div>
+<div class="footer"><p>footer</p></div>
+</div>
     <script>
-      // Get references to the audio player and GIF
-      const audioPlayer = document.getElementById('audioPlayer');
-      const startPlayback = document.getElementById('startPlayback');
+  /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+document.getElementById("drop").addEventListener("click", function(e) {
+  document.getElementById("myDropdown").classList.toggle("show");
+});
 
-      // Toggle play/pause when the GIF is clicked
-      startPlayback.addEventListener('click', () => {
-        if (audioPlayer.paused) {
-          audioPlayer.play();
-          alert('Audio playback started!');
-        } else {
-          audioPlayer.pause();
-          alert('Audio playback paused!');
-        }
-      });
-    </script>
-  </body>
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener("click", function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    document.querySelectorAll(".dropdown-content.show")
+      .forEach(openDropdown => openDropdown.classList.remove('show'))
+  }
+});
+</script>
+
+
+<style>
+  .navbar{  
+  z-index:99;
+  position: relative;
+  top:10%;
+  right:0;
+  width:100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  vertical-align:middle;
+  height: 9%;
+  padding-top:10px;
+  padding-bottom:10px;
+  
+} 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 80px;    /* Footer height */
+}
+
+
+.footer{  
+  display:block;
+  z-index:50;
+  position: relative;
+  padding-top:1%;
+  left:0;
+  right:0;
+  width:100%;
+  background-color: grey;
+  color: black;
+  text-align: center;
+  height: 80px;
+}
+
+
+
+
+
+  #content { 
+  z-index:99;
+  height:100%;
+  display:table;
+  padding-bottom:90px;
+}
+
+
+
+      
+      
+      
+
+ 
+ 
+ 
+ .dropbtn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  font-size: 2.5vh;
+  border-radius: 2px;
+  cursor: url(custompointerfilename.png), auto;
+  transition-duration: 0.0s;
+  /*must change manually to match css stylesheet body font*/
+  font-family: "Menlo";
+}
+
+  .dropbtn:hover {
+  background-color: black; 
+  color: white;
+}
+
+  .cursor {
+  cursor: url(customcursorfilename.png), auto;
+  height: 350px;
+  width: 25%;
+  left: 200px;
+  position: absolute;
+  z-index: 99;
+
+}
+
+  .dropdown {
+  position: relative;
+  display: inline;
+  cursor: url(customcursorfilename.png), auto; 
+}
+
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0%;
+  top: 10px;
+  background-color: #fff;
+  width: 93%;
+  z-index: 1;
+  margin-top: 20px;
+  
+}
+
+  .dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+}
+/* edit dropdown */
+  hr.solid {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom:  1px solid #fff;
+}
+
+  .show {
+  display: block;
+}
+ 
+ 
+
+  .menu {
+  padding:5px;
+  padding-top:10px;  
+} 
+ 
+ /* edit background color, add patterns, etc. */
+  body {
+   background:black;
+   font-family: "Menlo";
+ }
+
+
+ 
+ 
+ .gallery {
+
+	position: relative;
+	width: 35.5vh;
+	height:23vh;
+	margin-top: 14vh;
+	margin-right: 6vh;
+	border: 1px solid #ccc;
+	float: left;
+  left:5vw;
+  
+
+}
+
+div.gallery:hover {
+  border: 1px solid #fff;
+}
+
+.gallery img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+
+.desc {
+	display: block;
+	position: absolute;
+	top: 120%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+  color:white;
+  overflow:visible;
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.footer{  
+ font-size: 1.5vh;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.dropbtn {
+  font-size: 1.5vh;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+ .dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.5vh;
+ }
+}
+      
+@media only screen and (max-width: 700px) {
+.gallery {
+  position: relative;
+	width: 35%;
+  translate: 6% 0%;
+	height: 100px;
+	margin-top: 8vh;
+	border: 1px solid #ccc;
+	float: left;
+  top:5%;
+  
+  }
+}      
+
+@media only screen and (max-width: 700px) {
+.desc {
+ font-size: 1.7vh;
+ }
+}
+
+@media only screen and (max-width: 700px) {
+ #content { 
+  z-index:99;
+  height:100%;
+  display:table;
+  padding-bottom:45px;
+ }
+} 
+      
+      
+      
+</style>
+
+
+
+</body>
 </html>
