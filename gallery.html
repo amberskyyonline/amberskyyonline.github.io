@@ -31,7 +31,7 @@
 <a href="shopurl"> <button id="button" class="dropbtn" >shop </button></a>
 <a href="webring"> <button id="button" class="dropbtn" >webring </button></a>
  </div> 
-   <!-- Clickable GIF Section -->
+  <!-- Clickable GIF Section -->
         <div style="text-align: center; margin-top: 20px;">
           <img 
             src="https://external-media.spacehey.net/media/svoF1kd_Y5JAkygxEjocLxzKdSAbQFZsekyk0_XRzdls=/https://i.pinimg.com/originals/2c/13/79/2c137988f5a8b8c7d85567a699d72229.gif" 
@@ -68,10 +68,12 @@
         });
       }
 
-      // Play the playlist when the GIF is clicked
+      // Play the playlist when GIF is clicked
       function onPlayerReady(event) {
         document.getElementById('startPlayback').addEventListener('click', function() {
+          player.mute(); // Start muted to bypass autoplay restrictions
           player.playVideo(); // Start playback
+          setTimeout(() => player.unMute(), 500); // Unmute after a short delay
           alert('Audio playback started!');
         });
       }
@@ -82,6 +84,7 @@
         console.error('YouTube Player Error:', event.data);
       }
     </script>
+
 <style>
   .navbar{  
   z-index:99;
