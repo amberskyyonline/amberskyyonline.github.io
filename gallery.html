@@ -143,6 +143,96 @@
           background-position: 0% 50%;
         }
       }
+       .gallery {
+
+	position: relative;
+	width: 35.5vh;
+	height:23vh;
+	margin-top: 14vh;
+	margin-right: 6vh;
+	border: 1px solid #ccc;
+	float: left;
+  left:5vw;
+  
+
+}
+
+div.gallery:hover {
+  border: 1px solid #fff;
+}
+
+.gallery img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+
+.desc {
+	display: block;
+	position: absolute;
+	top: 120%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+  color:white;
+  overflow:visible;
+}
+
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.footer{  
+ font-size: 1.5vh;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+.dropbtn {
+  font-size: 1.5vh;
+ }
+}
+
+@media screen and (max-width: 700px) { /* Specific to this particular element on phones*/
+ .dropdown-content a {
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.5vh;
+ }
+}
+      
+@media only screen and (max-width: 700px) {
+.gallery {
+  position: relative;
+	width: 35%;
+  translate: 6% 0%;
+	height: 100px;
+	margin-top: 8vh;
+	border: 1px solid #ccc;
+	float: left;
+  top:5%;
+  
+  }
+}      
+
+@media only screen and (max-width: 700px) {
+.desc {
+ font-size: 1.7vh;
+ }
+}
+
+@media only screen and (max-width: 700px) {
+ #content { 
+  z-index:99;
+  height:100%;
+  display:table;
+  padding-bottom:45px;
+ }
+} 
     </style>
 </body>
 </html>
