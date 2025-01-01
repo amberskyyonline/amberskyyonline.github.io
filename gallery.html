@@ -52,13 +52,13 @@
  <!-- Each gallery page can hold up to 16 items. Delete and duplicate to change the number of media slots on page.-->
 
 
-    <script>
-  /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
-document.getElementById("drop").addEventListener("click", function(e) {
-  document.getElementById("myDropdown").classList.toggle("show");
-});
-
+<script>
+      // Start playback when GIF is clicked
+      document.getElementById('startPlayback').addEventListener('click', function() {
+        const iframe = document.getElementById('hiddenVideo');
+        iframe.src += '&autoplay=1'; // Add autoplay to the iframe source
+        alert('Audio playback started!');
+      });v
 
 // Close the dropdown if the user clicks outside of it
 window.addEventListener("click", function(event) {
