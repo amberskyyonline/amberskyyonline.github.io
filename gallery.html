@@ -4,16 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>musik</title>
-    <link rel="icon" href="tabicon.png"> <!-- insert tab icon -->
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
     <style>
-      .navbar {  
+      body {
+        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+
+      #startPlayback {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      #startPlayback:hover {
+        transform: scale(1.1);
+      }
+
+      .gif-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .click-label {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #ffcc00;
+      }
+
+      .playlist {
+        margin-top: 20px;
+      }
+
+      .song {
+        cursor: pointer;
+        margin: 5px 0;
+        color: white;
+        font-size: 18px;
+        text-decoration: underline;
+      }
+
+      .song:hover {
+        color: #ffcc00;
+      }
+
+      #audioPlayer {
+        display: none;
+      }
+
+      .shuffle-btn {
+        margin-top: 20px;
+        background-color: #ffcc00;
+        color: black;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .shuffle-btn:hover {
+        background-color: #ffa500;
+      }
+
+      .navbar {
         z-index: 99;
         position: relative;
         top: 10%;
         right: 0;
         width: 100%;
-        background-color: ;
+        background-color: black;
         color: white;
         text-align: center;
         vertical-align: middle;
@@ -37,76 +100,11 @@
         background-color: black;
         color: white;
       }
-
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        left: 0;
-        background-color: #f9f9f9;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
-
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
-
-      .dropdown-content a:hover {
-        background-color: #ddd;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-
-      body {
-        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502);
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-        height: 100vh;
-        font-family: Arial, sans-serif;
-        margin: 0;
-      }
-
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      #startPlayback {
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-
-      #startPlayback:hover {
-        transform: scale(1.1); /* Slightly enlarges the GIF on hover */
-      }
-
-      #audioPlayer {
-        display: none; /* Hides the audio player */
-      }
     </style>
   </head>
   <body>
     <div id="page-container">
       <div id="content-wrap">
-
         <!-- Navbar -->
         <div class="navbar">
           <a href="index"><button id="button" class="dropbtn">home</button></a>
@@ -125,37 +123,73 @@
         </div>
 
         <!-- Clickable GIF Section -->
-        <div style="text-align: center; margin-top: 20px;">
+        <div class="gif-container">
           <img 
             src="https://external-media.spacehey.net/media/svoF1kd_Y5JAkygxEjocLxzKdSAbQFZsekyk0_XRzdls=/https://i.pinimg.com/originals/2c/13/79/2c137988f5a8b8c7d85567a699d72229.gif" 
             height="200" 
             alt="Click to Play Audio"
             id="startPlayback">
+          <div class="click-label">Click Me</div>
         </div>
 
         <!-- Hidden Audio Player -->
         <audio id="audioPlayer" loop>
-          <source src="https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3" type="audio/mp3">
+          <source src="" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
 
+        <!-- Playlist Section -->
+        <div class="playlist">
+          <h2>Playlist</h2>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOThf/Why%20Should%20I%20Be%20Sad.mp3">Song 1</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3">Song 2</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTRf/Meleka%20-%20Go%20%28Now%20It%27s%20Over%20Boy%29%20Crazy%20Cousinz%20Radio%20Edit.mp3">Song 3</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3">Song 4</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTlf/JMSN%20-%20Soft%20Spot%20%28Audio%29.mp3">Song 5</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3">Song 6</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3">Song 7</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3">Song 8</div>
+          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3">Song 9</div>
+
+
+        </div>
+
+        <!-- Shuffle Button -->
+        <button class="shuffle-btn" id="shuffleBtn">Shuffle</button>
       </div>
     </div>
 
     <script>
-      // Reference the audio player and GIF
       const audioPlayer = document.getElementById('audioPlayer');
       const startPlayback = document.getElementById('startPlayback');
+      const playlist = document.querySelectorAll('.song');
+      const shuffleBtn = document.getElementById('shuffleBtn');
 
-      // Toggle play/pause when the GIF is clicked
+      // Click event for GIF to toggle play/pause
       startPlayback.addEventListener('click', () => {
         if (audioPlayer.paused) {
           audioPlayer.play();
-          alert('Audio playback started!');
         } else {
           audioPlayer.pause();
-          alert('Audio playback paused!');
         }
+      });
+
+      // Click event for playlist items
+      playlist.forEach(song => {
+        song.addEventListener('click', () => {
+          const src = song.getAttribute('data-src');
+          audioPlayer.src = src;
+          audioPlayer.play();
+        });
+      });
+
+      // Shuffle functionality
+      shuffleBtn.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * playlist.length);
+        const randomSong = playlist[randomIndex];
+        const src = randomSong.getAttribute('data-src');
+        audioPlayer.src = src;
+        audioPlayer.play();
       });
     </script>
   </body>
