@@ -35,39 +35,8 @@
         color: #ffcc00;
       }
 
-      .playlist {
-        margin-top: 20px;
-      }
-
-      .song {
-        cursor: pointer;
-        margin: 5px 0;
-        color: white;
-        font-size: 18px;
-        text-decoration: underline;
-      }
-
-      .song:hover {
-        color: #ffcc00;
-      }
-
       #audioPlayer {
         display: none;
-      }
-
-      .shuffle-btn {
-        margin-top: 20px;
-        background-color: #ffcc00;
-        color: black;
-        font-size: 18px;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      .shuffle-btn:hover {
-        background-color: #ffa500;
       }
 
       .navbar {
@@ -99,6 +68,36 @@
       .dropbtn:hover {
         background-color: black;
         color: white;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
       }
     </style>
   </head>
@@ -137,59 +136,48 @@
           <source src="" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
-
-        <!-- Playlist Section -->
-        <div class="playlist">
-          <h2>Playlist</h2>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOThf/Why%20Should%20I%20Be%20Sad.mp3">Song 1</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3">Song 2</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTRf/Meleka%20-%20Go%20%28Now%20It%27s%20Over%20Boy%29%20Crazy%20Cousinz%20Radio%20Edit.mp3">Song 3</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3">Song 4</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTlf/JMSN%20-%20Soft%20Spot%20%28Audio%29.mp3">Song 5</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3">Song 6</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3">Song 7</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3">Song 8</div>
-          <div class="song" data-src="https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3">Song 9</div>
-
-
-        </div>
-
-        <!-- Shuffle Button -->
-        <button class="shuffle-btn" id="shuffleBtn">Shuffle</button>
       </div>
     </div>
 
     <script>
       const audioPlayer = document.getElementById('audioPlayer');
       const startPlayback = document.getElementById('startPlayback');
-      const playlist = document.querySelectorAll('.song');
-      const shuffleBtn = document.getElementById('shuffleBtn');
 
-      // Click event for GIF to toggle play/pause
+      // Playlist Array
+      const playlist = [
+        "https://od.lk/s/OTBfNDMzODczOThf/Why%20Should%20I%20Be%20Sad.mp3",
+        "https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTRf/Meleka%20-%20Go%20%28Now%20It%27s%20Over%20Boy%29%20Crazy%20Cousinz%20Radio%20Edit.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTlf/JMSN%20-%20Soft%20Spot%20%28Audio%29.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3",
+        "https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3"
+
+
+
+      ];
+
+      // Function to pick a random song
+      function getRandomSong() {
+        const randomIndex = Math.floor(Math.random() * playlist.length);
+        return playlist[randomIndex];
+      }
+
+      // Click event for GIF to play a random song
       startPlayback.addEventListener('click', () => {
         if (audioPlayer.paused) {
+          // If paused, load a random song and play it
+          if (!audioPlayer.src || audioPlayer.ended) {
+            const randomSong = getRandomSong();
+            audioPlayer.src = randomSong;
+          }
           audioPlayer.play();
         } else {
+          // If already playing, pause the audio
           audioPlayer.pause();
         }
-      });
-
-      // Click event for playlist items
-      playlist.forEach(song => {
-        song.addEventListener('click', () => {
-          const src = song.getAttribute('data-src');
-          audioPlayer.src = src;
-          audioPlayer.play();
-        });
-      });
-
-      // Shuffle functionality
-      shuffleBtn.addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * playlist.length);
-        const randomSong = playlist[randomIndex];
-        const src = randomSong.getAttribute('data-src');
-        audioPlayer.src = src;
-        audioPlayer.play();
       });
     </script>
   </body>
