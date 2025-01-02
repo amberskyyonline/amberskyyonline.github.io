@@ -3,38 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Audio Player</title>
+    <title>musik</title>
+    <link rel="icon" href="tabicon.png"> <!-- insert tab icon -->
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
     <style>
-      body {
-        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502);
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-        font-family: Arial, sans-serif;
-        color: white;
-        text-align: center;
-        padding: 20px;
-      }
-
-      #startPlayback {
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-
-      #startPlayback:hover {
-        transform: scale(1.1); /* Slightly enlarges the GIF on hover */
-      }
-
-      #audioPlayer {
-        display: none; /* Hides the audio player */
-      }
-
-      .navbar {
+      .navbar {  
         z-index: 99;
         position: relative;
         top: 10%;
         right: 0;
         width: 100%;
-        background-color: black;
+        background-color: ;
         color: white;
         text-align: center;
         vertical-align: middle;
@@ -58,24 +37,85 @@
         background-color: black;
         color: white;
       }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      body {
+        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      #startPlayback {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      #startPlayback:hover {
+        transform: scale(1.1); /* Slightly enlarges the GIF on hover */
+      }
+
+      #audioPlayer {
+        display: none; /* Hides the audio player */
+      }
     </style>
   </head>
   <body>
     <div id="page-container">
       <div id="content-wrap">
+
         <!-- Navbar -->
         <div class="navbar">
           <a href="index"><button id="button" class="dropbtn">home</button></a>
           <div class="dropdown">
             <button id="drop" class="dropbtn">media</button>
-            <div id="myDropdown" class="dropdown-content">
-              <hr class="solid">
+            <div class="dropdown-content">
               <a href="/gallery">Section 1</a>
-              <hr class="solid">
               <a href="/gallery2">Section 2</a>
-              <hr class="solid">
               <a href="/gallery3">Section 3</a>
-              <hr class="solid">
             </div>
           </div>
           <a href="contact"><button id="button" class="dropbtn">contact</button></a>
@@ -98,6 +138,7 @@
           <source src="https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
+
       </div>
     </div>
 
