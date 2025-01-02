@@ -6,7 +6,7 @@
     <title>musik</title>
     <style>
       body {
-        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502, #7CFC00, #FF7518,	#FAFA33);
+        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502, #7CFC00, #FF7518, #FAFA33);
         background-size: 400% 400%;
         animation: gradient 5s ease infinite;
         font-family: Arial, sans-serif;
@@ -32,7 +32,7 @@
       .click-label {
         margin-top: 10px;
         font-size: 18px;
-        color: #ffcc00;
+        color: #ffffff;
       }
 
       #audioPlayer {
@@ -128,11 +128,11 @@
             height="200" 
             alt="Click to Play Audio"
             id="startPlayback">
-          <div class="click-label">Click Me</div>
+          <div class="click-label">Click Me :) </div>
         </div>
 
         <!-- Hidden Audio Player -->
-        <audio id="audioPlayer" loop>
+        <audio id="audioPlayer">
           <source src="" type="audio/mp3">
           Your browser does not support the audio element.
         </audio>
@@ -154,6 +154,7 @@
         "https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3",
         "https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3",
         "https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3"
+
       ];
 
       // Function to pick a random song
@@ -187,6 +188,11 @@
       // Double-click event to play the next random song
       startPlayback.addEventListener('dblclick', () => {
         playRandomSong();
+      });
+
+      // Event listener for when a song ends
+      audioPlayer.addEventListener('ended', () => {
+        playRandomSong(); // Play the next random song when the current song ends
       });
     </script>
   </body>
