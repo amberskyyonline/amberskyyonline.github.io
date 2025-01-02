@@ -6,7 +6,7 @@
     <title>musik</title>
     <style>
       body {
-        background: linear-gradient(192deg, #DFFF00, #FFBF00, #FF7F50, #DE3163, #9FE2BF, #40E0D0, #6495ED, #CCCCFF);
+        background: linear-gradient(192deg, #4a9900, #6cbc00, #23a6d5, #6ff502, #7CFC00, #FF7518,	#FAFA33);
         background-size: 400% 400%;
         animation: gradient 5s ease infinite;
         font-family: Arial, sans-serif;
@@ -128,7 +128,7 @@
             height="200" 
             alt="Click to Play Audio"
             id="startPlayback">
-          <div class="click-label">Click Me :) </div>
+          <div class="click-label">Click Me</div>
         </div>
 
         <!-- Hidden Audio Player -->
@@ -154,9 +154,6 @@
         "https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3",
         "https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3",
         "https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3"
-
-
-
       ];
 
       // Function to pick a random song
@@ -165,20 +162,33 @@
         return playlist[randomIndex];
       }
 
-      // Click event for GIF to play a random song
+      // Play a random song
+      function playRandomSong() {
+        const randomSong = getRandomSong();
+        audioPlayer.src = randomSong;
+        audioPlayer.play();
+      }
+
+      // Click event for GIF to toggle play/pause
       startPlayback.addEventListener('click', () => {
         if (audioPlayer.paused) {
-          // If paused, load a random song and play it
+          // If no song is loaded or the current song has ended, play a random song
           if (!audioPlayer.src || audioPlayer.ended) {
-            const randomSong = getRandomSong();
-            audioPlayer.src = randomSong;
+            playRandomSong();
+          } else {
+            audioPlayer.play();
           }
-          audioPlayer.play();
         } else {
-          // If already playing, pause the audio
+          // Pause the audio if it's already playing
           audioPlayer.pause();
         }
+      });
+
+      // Double-click event to play the next random song
+      startPlayback.addEventListener('dblclick', () => {
+        playRandomSong();
       });
     </script>
   </body>
 </html>
+
