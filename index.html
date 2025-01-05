@@ -3,7 +3,7 @@
   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>musik</title>
+  <title>home</title>
 
   <!-- Add your favicon -->
   <link rel="icon" href="https://raw.githubusercontent.com/amberskyyonline/amberskyyonline.github.io/refs/heads/main/favicon.ico" type="image/x-icon">
@@ -122,8 +122,7 @@
    <!-- Fill in media here --> 
   <div class="gallery">
 <center><a href=""><img src="http://images.jellymuffin.com/images/welcome/images/097.gif"  alt="JellyMuffin.com graphics & Images" border=0></a><br><a href="" target="_blank"></a></center>
-   <iframe width="0" height="0" src="https://www.youtube.com/embed/5fF4n1p_yAU?si=1kF2E5-upnp7_U9j//?&;amp;;autoplay=1&;loop=1&;controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" loading="lazy">
-</iframe>
+  
 </div>
 
 
@@ -634,8 +633,39 @@ ul {
       
       
 </style>
+</div>
+<script>
+	<!-- Hidden Audio Player -->
+<audio id="audioPlayer" style="display: none;">
+  <source src="https://example.com/song.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
 
+<script>
+  const audioPlayer = document.getElementById('audioPlayer');
 
+  // Playlist Array
+  const playlist = [
+    "https://od.lk/s/OTBfNDMzOTE4OTJf/Viva%20La%20White%20Girl.mp3",
+  ];
+
+  // Function to play a random song
+  function playRandomSong() {
+    const randomIndex = Math.floor(Math.random() * playlist.length);
+    audioPlayer.src = playlist[randomIndex];
+    audioPlayer.play();
+  }
+
+  // Autoplay a random song on page load
+  window.addEventListener('load', () => {
+    playRandomSong();
+  });
+
+  // Play the next random song when the current one ends
+  audioPlayer.addEventListener('ended', () => {
+    playRandomSong();
+  });
+</script>
 
 </body>
 </html>
