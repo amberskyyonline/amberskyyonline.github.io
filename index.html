@@ -635,7 +635,7 @@ ul {
 	  
 </div>
 	<!-- Hidden Audio Player -->
-<audio id="audioPlayer" style="display: none;">
+<audio id="audioPlayer" autoplay loop style="display: none;">
   <source src="https://od.lk/s/OTBfNDMzOTE4OTJf/Viva%20La%20White%20Girl.mp3" type="audio/mp3">
   Your browser does not support the audio element.
 </audio>
@@ -643,24 +643,21 @@ ul {
 <script>
   const audioPlayer = document.getElementById('audioPlayer');
 
-  // Playlist Array
   const playlist = [
-"https://od.lk/s/OTBfNDMzOTE4OTJf/Viva%20La%20White%20Girl.mp3"
+    "https://od.lk/s/OTBfNDMzOTE4OTJf/Viva%20La%20White%20Girl.mp3"
+    // You can add more songs here if you want later
   ];
 
-  // Function to play a random song
   function playRandomSong() {
     const randomIndex = Math.floor(Math.random() * playlist.length);
     audioPlayer.src = playlist[randomIndex];
     audioPlayer.play();
   }
 
-  // Autoplay a random song on page load
   window.addEventListener('load', () => {
     playRandomSong();
   });
 
-  // Play the next random song when the current one ends
   audioPlayer.addEventListener('ended', () => {
     playRandomSong();
   });
