@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>zines</title>
+  <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  <style>
+    .zine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      padding: 50px;
+    }
+    .zine-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .zine-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+      display: block;
+      border: 2px solid white;
+    }
+    .zine-item:hover img {
+      transform: scale(1.05) rotate(-1deg);
+    }
+    .zine-title {
+      text-align: center;
+      color: white;
+      margin-top: 10px;
+      font-family: "Menlo";
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <!-- Your navbar here -->
+  </div>
+
+  <div class="zine-grid">
+    <div class="zine-item">
+      <a href="/zines/zine1.html">
+        <img src="/images/zine1cover.jpg" alt="Zine 1">
+        <div class="zine-title">Zine Title 1</div>
+      </a>
+    </div>
+    <div class="zine-item">
+      <a href="/zines/zine2.html">
+        <img src="/images/zine2cover.jpg" alt="Zine 2">
+        <div class="zine-title">Zine Title 2</div>
+      </a>
+    </div>
+    <!-- Add more zines here -->
+  </div>
+</body>
+</html>
 
