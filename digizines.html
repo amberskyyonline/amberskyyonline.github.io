@@ -2,58 +2,92 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>digizines</title>
-  <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  <title>digizine: zine 1</title>
+  <link href="/style.css" rel="stylesheet" type="text/css">
   <style>
-    .zine-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      padding: 50px;
-    }
-    .zine-item {
-      position: relative;
+    body {
+      background-color: black;
+      color: white;
+      font-family: "Menlo";
+      margin: 0;
       overflow: hidden;
     }
-    .zine-item img {
+    .page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .page img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    .nav {
+      position: absolute;
+      top: 50%;
       width: 100%;
-      height: auto;
-      transition: transform 0.3s ease;
-      display: block;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 30px;
+    }
+    .nav button {
+      background: none;
       border: 2px solid white;
-    }
-    .zine-item:hover img {
-      transform: scale(1.05) rotate(-1deg);
-    }
-    .zine-title {
-      text-align: center;
       color: white;
-      margin-top: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
       font-family: "Menlo";
+    }
+    .page-counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <!-- Your navbar code here -->
-  </div>
 
-  <h1 style="text-align: center; color: white;">digizines</h1>
-
-  <div class="zine-grid">
-    <div class="zine-item">
-      <a href="/digizines/zine1.html">
-        <img src="/images/zine1cover.jpg" alt="Zine 1">
-        <div class="zine-title">Zine Title 1</div>
-      </a>
-    </div>
-    <div class="zine-item">
-      <a href="/digizines/zine2.html">
-        <img src="/images/zine2cover.jpg" alt="Zine 2">
-        <div class="zine-title">Zine Title 2</div>
-      </a>
-    </div>
-    <!-- More zines -->
+<div class="page">
+  <img src="/images/zine1page1.jpg" alt="Page 1">
+  <div class="nav">
+    <button id="prev">←</button>
+    <button id="next">→</button>
   </div>
+  <div class="page-counter">1 / 5</div>
+</div>
+
+<script>
+  const pages = [
+    "/images/zine1page1.jpg",
+    "/images/zine1page2.jpg",
+    "/images/zine1page3.jpg",
+    "/images/zine1page4.jpg",
+    "/images/zine1page5.jpg"
+  ];
+  let current = 0;
+  const img = document.querySelector('.page img');
+  const counter = document.querySelector('.page-counter');
+
+  document.getElementById('next').addEventListener('click', () => {
+    if (current < pages.length - 1) current++;
+    updatePage();
+  });
+  document.getElementById('prev').addEventListener('click', () => {
+    if (current > 0) current--;
+    updatePage();
+  });
+
+  function updatePage() {
+    img.src = pages[current];
+    counter.textContent = `${current + 1} / ${pages.length}`;
+  }
+</script>
+
 </body>
 </html>
