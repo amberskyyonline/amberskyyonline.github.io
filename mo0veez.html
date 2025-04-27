@@ -70,7 +70,7 @@ width:100%; height:100%; object-fit: fill; "> </a>
     }
   </style>
   <wistia-player media-id="4lcb3668os" seo="false" aspect="1.7777777777777777" style="width: 100%; height: 100%;"></wistia-player>
-  <div class="desc">Wistia Video Example</div>
+  <div class="desc"></div>
 </div>
 
 
@@ -194,14 +194,15 @@ document.querySelectorAll('.video-thumb').forEach(video => {
   padding-bottom:10px;
   
 } 
-	.gallery wistia-player {
+
+.gallery .wistia_embed {
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
+
 
 	.video-thumb {
   position: absolute;
@@ -220,21 +221,6 @@ document.querySelectorAll('.video-thumb').forEach(video => {
 
 #content-wrap {
   padding-bottom: 80px;    /* Footer height */
-}
-
-
-.footer{  
-  display:block;
-  z-index:50;
-  position: relative;
-  padding-top:1%;
-  left:0;
-  right:0;
-  width:100%;
-  background-color: grey;
-  color: black;
-  text-align: center;
-  height: 80px;
 }
 
 
@@ -431,6 +417,7 @@ div.gallery:hover {
       
       
 </style>
+<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
 
 
 
