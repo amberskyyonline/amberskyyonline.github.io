@@ -200,20 +200,23 @@ setInterval(changeText, 8000);
 
 const audio = document.getElementById('ambientAudio');
 const audioBtn = document.getElementById('audioButton');
-
-// First interaction starts audio
 let isPlaying = false;
+
 audioBtn.addEventListener('click', () => {
   if (!isPlaying) {
-    audio.play();
-    isPlaying = true;
-    audioBtn.textContent = 'pause';
+    audio.play().then(() => {
+      isPlaying = true;
+      audioBtn.textContent = 'pause';
+    }).catch(err => {
+      console.error('Playback failed:', err);
+    });
   } else {
     audio.pause();
     isPlaying = false;
     audioBtn.textContent = 'play';
   }
 });
+
 
 
 </script>
