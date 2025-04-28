@@ -77,8 +77,12 @@
     padding: 15px 0;
   }
 
-  .navbar a {
+  .navbar .dropdown {
     display: inline-block;
+    position: relative;
+  }
+
+  .navbar a, .navbar .dropbtn {
     background: black;
     color: white;
     text-decoration: none;
@@ -87,10 +91,56 @@
     border: none;
     font-size: 14px;
     letter-spacing: 1px;
-    transition: background 0.3s;
+    cursor: pointer;
   }
 
-  .navbar a:hover {
+  .navbar a:hover, .navbar .dropbtn:hover {
+    background: white;
+    color: black;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: 40px; /* Drop-up */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    min-width: 160px;
+    z-index: 2;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .dropdown-content a:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .mute-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .mute-btn:hover {
     background: white;
     color: black;
   }
@@ -102,6 +152,7 @@
 <audio id="ambientAudio" autoplay loop>
   <source src="https://od.lk/f/OTBfNDQ0ODM0MDZf" type="audio/mp3">
 </audio>
+<button class="mute-btn" id="muteButton">mute</button>
 
 <div class="slideshow">
   <img src="/images/still1.jpg" alt="Still 1">
@@ -119,14 +170,19 @@
 
 <div class="navbar">
   <a href="/contact.html">contact</a>
-  <a href="/gallery.html">gallery</a>
- <a href="https://freexonemag.wordpress.com/">blog</a>
+  <div class="dropdown">
+    <button class="dropbtn">gallery</button>
+    <div class="dropdown-content">
+      <a href="https://amberskyy.online/mo0veez">mo0veez</a>
+      <a href="https://amberskyy.online/ip0dshuffle">ip0dshuffle</a>
+    </div>
+  </div>
+  <a href="https://freexonemag.wordpress.com/" target="_blank">blog</a>
   <a href="https://charade212.com/" target="_blank">shop</a>
 </div>
 
-
 <script>
-// Morphing floating text
+// Floating text cycle
 const words = ["searching", "questioning", "conspiracist dreamer"];
 let index = 0;
 const textElem = document.getElementById('floatingText');
@@ -137,10 +193,24 @@ function changeText() {
     textElem.textContent = words[index];
     textElem.style.opacity = 1;
     index = (index + 1) % words.length;
-  }, 2000); // fade out duration
+  }, 2000);
 }
 
 setInterval(changeText, 8000);
+
+// Mute/unmute button
+const audio = document.getElementById('ambientAudio');
+const muteBtn = document.getElementById('muteButton');
+
+muteBtn.addEventListener('click', () => {
+  if (audio.muted) {
+    audio.muted = false;
+    muteBtn.textContent = 'mute';
+  } else {
+    audio.muted = true;
+    muteBtn.textContent = 'unmute';
+  }
+});
 </script>
 
 </body>
