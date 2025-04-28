@@ -53,30 +53,16 @@
     100% { opacity: 0; }
   }
 
-  .grain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') repeat; /* Real grain */
-    background-size: cover;
-    opacity: 0.12; 
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: screen;
-  }
-
   .text {
     position: fixed;
-    bottom: 5%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     color: white;
     font-size: 16px;
     letter-spacing: 2px;
     text-align: center;
-    z-index: 2;
+    z-index: 1;
     animation: textFade 8s infinite;
   }
 
@@ -105,8 +91,6 @@
   <img src="/images/still8.jpg" alt="Still 8">
   <img src="/images/still9.jpg" alt="Still 9">
 </div>
-
-<div class="grain"></div>
 
 <div class="text" id="floatingText">searching</div>
 
