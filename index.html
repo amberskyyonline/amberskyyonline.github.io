@@ -26,28 +26,28 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transform: scale(0.85); /* Zoomed out */
+    object-fit: contain;  /* No cropping */
+    background: black;    /* Letterboxing */
     opacity: 0;
-    animation: fade 90s infinite;
+    animation: fade 54s infinite;
     filter: contrast(1.1) brightness(0.9) grayscale(0.2);
   }
 
   .slideshow img:nth-child(1) { animation-delay: 0s; }
-  .slideshow img:nth-child(2) { animation-delay: 10s; }
-  .slideshow img:nth-child(3) { animation-delay: 20s; }
-  .slideshow img:nth-child(4) { animation-delay: 30s; }
-  .slideshow img:nth-child(5) { animation-delay: 40s; }
-  .slideshow img:nth-child(6) { animation-delay: 50s; }
-  .slideshow img:nth-child(7) { animation-delay: 60s; }
-  .slideshow img:nth-child(8) { animation-delay: 70s; }
-  .slideshow img:nth-child(9) { animation-delay: 80s; }
+  .slideshow img:nth-child(2) { animation-delay: 6s; }
+  .slideshow img:nth-child(3) { animation-delay: 12s; }
+  .slideshow img:nth-child(4) { animation-delay: 18s; }
+  .slideshow img:nth-child(5) { animation-delay: 24s; }
+  .slideshow img:nth-child(6) { animation-delay: 30s; }
+  .slideshow img:nth-child(7) { animation-delay: 36s; }
+  .slideshow img:nth-child(8) { animation-delay: 42s; }
+  .slideshow img:nth-child(9) { animation-delay: 48s; }
 
   @keyframes fade {
     0% { opacity: 0; }
-    10% { opacity: 1; }
+    8% { opacity: 1; }
     20% { opacity: 1; }
-    30% { opacity: 0; }
+    28% { opacity: 0; }
     100% { opacity: 0; }
   }
 
@@ -61,7 +61,7 @@
     pointer-events: none;
     z-index: 1;
     mix-blend-mode: multiply;
-    animation: grainMove 8s infinite;
+    animation: grainMove 6s infinite;
   }
 
   @keyframes grainMove {
@@ -79,7 +79,7 @@
     letter-spacing: 2px;
     text-align: center;
     z-index: 2;
-    animation: textFade 12s infinite;
+    animation: textFade 8s infinite;
   }
 
   @keyframes textFade {
@@ -116,7 +116,7 @@ const textElem = document.getElementById('floatingText');
 setInterval(() => {
   index = (index + 1) % words.length;
   textElem.textContent = words[index];
-}, 12000); // Change text every 12 seconds (sync with fade)
+}, 8000); // Change text every 8 seconds
 </script>
 
 </body>
