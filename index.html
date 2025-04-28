@@ -14,14 +14,16 @@
   }
 
 
- .slideshow {
+.slideshow {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  width: 80vw;  /* Centered but bigger */
+  height: 80vh;
+  transform: translate(-50%, -50%);
   z-index: 0;
 }
+
 
 
   .slideshow img:nth-child(1) { animation-delay: 0s; }
@@ -43,18 +45,18 @@
   }
 
   .text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 18px;
-    letter-spacing: 2px;
-    text-align: center;
-    z-index: 1;
-    opacity: 1;
-    transition: opacity 2s ease;
-  }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px; /* Bigger font */
+  letter-spacing: 2px;
+  text-align: center;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 2s ease;
+}
 
   .navbar {
     position: fixed;
