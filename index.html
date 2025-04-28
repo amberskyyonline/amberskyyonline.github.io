@@ -13,6 +13,7 @@
     font-family: Helvetica, sans-serif;
   }
 
+  /* Landing Screen */
   .landing {
     position: fixed;
     top: 0;
@@ -42,6 +43,7 @@
     color: black;
   }
 
+  /* Slideshow */
   .slideshow {
     position: fixed;
     top: 50%;
@@ -51,7 +53,7 @@
     transform: translate(-50%, -50%);
     z-index: 0;
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity 1s ease;
   }
 
   .slideshow img {
@@ -81,9 +83,10 @@
     100% { opacity: 0; }
   }
 
+  /* Floating Text */
   .text {
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -92,9 +95,10 @@
     text-align: center;
     z-index: 1;
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity 1s ease;
   }
 
+  /* Navbar */
   .navbar {
     position: fixed;
     bottom: 0;
@@ -104,12 +108,7 @@
     background: transparent;
     padding: 15px 0;
     opacity: 0;
-    transition: opacity 2s ease;
-  }
-
-  .navbar .dropdown {
-    display: inline-block;
-    position: relative;
+    transition: opacity 1s ease;
   }
 
   .navbar a, .navbar .dropbtn {
@@ -129,38 +128,90 @@
     color: black;
   }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    bottom: 40px;
+  /* Digizine Button */
+  .digizine-btn {
+    position: fixed;
+    top: 90%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: black;
-    min-width: 160px;
-    z-index: 2;
-  }
-
-  .dropdown-content a {
-    display: block;
-    padding: 10px;
+    background: none;
+    border: 2px solid white;
     color: white;
-    text-decoration: none;
-    text-align: center;
+    padding: 10px 25px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1s ease;
   }
 
-  .dropdown-content a:hover {
-    background-color: white;
+  .digizine-btn:hover {
+    background: white;
     color: black;
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
+  /* Flipbook */
+  .book {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 80vh;
+    transform: translate(-50%, -50%);
+    perspective: 2000px;
+    display: none;
+    z-index: 5;
   }
+
+  .page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    background-size: cover;
+    background-position: center;
+    backface-visibility: hidden;
+    transform-origin: left;
+    transition: transform 1s ease;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
+
+  .page.flipped {
+    transform: rotateY(-180deg);
+    z-index: -1;
+  }
+
+  #flipControls {
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: 6;
+    display: none;
+  }
+
+  #flipControls button {
+    background: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  #flipControls button:hover {
+    background: white;
+    color: black;
+  }
+
 </style>
 </head>
 <body>
 
-<!-- Landing -->
+<!-- Landing Screen -->
 <div class="landing" id="landingScreen">
   <button id="enterButton">enter</button>
 </div>
@@ -183,21 +234,38 @@
   <img src="/images/still9.jpg">
 </div>
 
-<!-- Text -->
+<!-- Floating Text -->
 <div class="text" id="floatingText">searching</div>
 
 <!-- Navbar -->
 <div class="navbar" id="navbar">
   <a href="/contact.html">contact</a>
-  <div class="dropdown">
-    <button class="dropbtn">gallery</button>
-    <div class="dropdown-content">
-      <a href="https://amberskyy.online/mo0veez">mo0veez</a>
-      <a href="https://amberskyy.online/ip0dshuffle">ip0dshuffle</a>
-    </div>
-  </div>
+  <a href="https://amberskyy.online/mo0veez">mo0veez</a>
+  <a href="https://amberskyy.online/ip0dshuffle">ip0dshuffle</a>
   <a href="https://freexonemag.wordpress.com/" target="_blank">blog</a>
   <a href="https://charade212.com/" target="_blank">shop</a>
+</div>
+
+<!-- Digizine Button -->
+<button class="digizine-btn" id="digizineButton">digizine</button>
+
+<!-- Book -->
+<div class="book" id="book">
+  <div class="page" style="background-image: url('/images/still1.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still2.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still3.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still4.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still5.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still6.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still7.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still8.jpg');"></div>
+  <div class="page" style="background-image: url('/images/still9.jpg');"></div>
+</div>
+
+<!-- Flipbook Controls -->
+<div id="flipControls">
+  <button id="prevBtn">previous</button>
+  <button id="nextBtn">next</button>
 </div>
 
 <script>
@@ -215,11 +283,15 @@ function changeText() {
 }
 setInterval(changeText, 8000);
 
-// Enter button
+// Elements
 const enterBtn = document.getElementById('enterButton');
 const landing = document.getElementById('landingScreen');
 const slideshow = document.getElementById('slideshow');
+const text = document.getElementById('floatingText');
 const navbar = document.getElementById('navbar');
+const digizineBtn = document.getElementById('digizineButton');
+const book = document.getElementById('book');
+const flipControls = document.getElementById('flipControls');
 const audioPlayer = document.getElementById('audioPlayer');
 
 // Playlist
@@ -241,9 +313,40 @@ enterBtn.addEventListener('click', () => {
   landing.style.opacity = 0;
   setTimeout(() => landing.style.display = 'none', 1000);
   slideshow.style.opacity = 1;
-  textElem.style.opacity = 1;
+  text.style.opacity = 1;
   navbar.style.opacity = 1;
+  digizineBtn.style.opacity = 1;
   playRandomSong();
+});
+
+// Flipbook button
+digizineBtn.addEventListener('click', () => {
+  slideshow.style.opacity = 0;
+  text.style.opacity = 0;
+  navbar.style.opacity = 0;
+  digizineBtn.style.opacity = 0;
+  setTimeout(() => {
+    book.style.display = 'block';
+    flipControls.style.display = 'block';
+  }, 1000);
+});
+
+// Flipbook Controls
+const pages = document.querySelectorAll('.page');
+let currentPage = 0;
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  if (currentPage < pages.length) {
+    pages[currentPage].classList.add('flipped');
+    currentPage++;
+  }
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  if (currentPage > 0) {
+    currentPage--;
+    pages[currentPage].classList.remove('flipped');
+  }
 });
 </script>
 
