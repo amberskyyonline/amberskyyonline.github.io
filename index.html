@@ -149,7 +149,7 @@
 <body>
 
 <!-- AUDIO -->
-<audio id="ambientAudio" autoplay loop>
+<audio id="ambientAudio" autoplay muted loop>
   <source src="https://od.lk/f/OTBfNDQ0ODM0MDZf" type="audio/mp3">
 </audio>
 <button class="mute-btn" id="muteButton">mute</button>
@@ -183,7 +183,7 @@
 
 <script>
 // Floating text cycle
-const words = ["searching", "questioning", "conspiracist dreamer"];
+const words = ["searching", "questioning", "conspiracist dreamer",];
 let index = 0;
 const textElem = document.getElementById('floatingText');
 
@@ -211,6 +211,11 @@ muteBtn.addEventListener('click', () => {
     muteBtn.textContent = 'unmute';
   }
 });
+  window.addEventListener('load', () => {
+  const audio = document.getElementById('ambientAudio');
+  audio.muted = false; // Unmute on page load
+});
+
 </script>
 
 </body>
