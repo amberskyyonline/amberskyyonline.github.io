@@ -202,7 +202,8 @@ const audio = document.getElementById('ambientAudio');
 const audioBtn = document.getElementById('audioButton');
 let isPlaying = false;
 
-audioBtn.addEventListener('click', () => {
+// Start audio on first user click ANYWHERE
+window.addEventListener('click', () => {
   if (!isPlaying) {
     audio.play().then(() => {
       isPlaying = true;
@@ -210,10 +211,22 @@ audioBtn.addEventListener('click', () => {
     }).catch(err => {
       console.error('Playback failed:', err);
     });
-  } else {
+  }
+}, { once: true }); // Only once!
+
+// Button to toggle play/pause
+audioBtn.addEventListener('click', () => {
+  if (isPlaying) {
     audio.pause();
-    isPlaying = false;
     audioBtn.textContent = 'play';
+    isPlaying = false;
+  } else {
+    audio.play().then(() => {
+      audioBtn.textContent = 'pause';
+      isPlaying = true;
+    }).catch(err => {
+      console.error('Playback failed:', err);
+    });
   }
 });
 
