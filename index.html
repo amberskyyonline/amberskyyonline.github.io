@@ -13,7 +13,6 @@
     font-family: Helvetica, sans-serif;
   }
 
-  /* Landing Screen */
   .landing {
     position: fixed;
     top: 0;
@@ -43,7 +42,6 @@
     color: black;
   }
 
-  /* Slideshow */
   .slideshow {
     position: fixed;
     top: 50%;
@@ -83,7 +81,6 @@
     100% { opacity: 0; }
   }
 
-  /* Floating text */
   .text {
     position: fixed;
     top: 50%;
@@ -98,7 +95,6 @@
     transition: opacity 2s ease;
   }
 
-  /* Navbar */
   .navbar {
     position: fixed;
     bottom: 0;
@@ -136,7 +132,7 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    bottom: 40px; /* Drop-up */
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;
@@ -160,36 +156,34 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
-
 </style>
 </head>
 <body>
 
-<!-- AUDIO -->
-<audio id="ambientAudio" muted loop>
-  <source src="https://od.lk/s/OTBfNDQ0ODM0MDZf/Slowdive%20-%20Avalyn%20II%20%28Official%20Audio%29.mp3" type="audio/mp3">
-</audio>
-
-
-<!-- Landing Screen -->
+<!-- Landing -->
 <div class="landing" id="landingScreen">
   <button id="enterButton">enter</button>
 </div>
 
+<!-- Audio -->
+<audio id="audioPlayer" loop style="display: none;">
+  <source src="">
+</audio>
+
 <!-- Slideshow -->
 <div class="slideshow" id="slideshow">
-  <img src="/images/still1.jpg" alt="Still 1">
-  <img src="/images/still2.jpg" alt="Still 2">
-  <img src="/images/still3.jpg" alt="Still 3">
-  <img src="/images/still4.jpg" alt="Still 4">
-  <img src="/images/still5.jpg" alt="Still 5">
-  <img src="/images/still6.jpg" alt="Still 6">
-  <img src="/images/still7.jpg" alt="Still 7">
-  <img src="/images/still8.jpg" alt="Still 8">
-  <img src="/images/still9.jpg" alt="Still 9">
+  <img src="/images/still1.jpg">
+  <img src="/images/still2.jpg">
+  <img src="/images/still3.jpg">
+  <img src="/images/still4.jpg">
+  <img src="/images/still5.jpg">
+  <img src="/images/still6.jpg">
+  <img src="/images/still7.jpg">
+  <img src="/images/still8.jpg">
+  <img src="/images/still9.jpg">
 </div>
 
-<!-- Floating text -->
+<!-- Text -->
 <div class="text" id="floatingText">searching</div>
 
 <!-- Navbar -->
@@ -207,11 +201,10 @@
 </div>
 
 <script>
-// Floating text cycle
+// Floating text
 const words = ["searching", "questioning", "conspiracist dreamer"];
 let index = 0;
 const textElem = document.getElementById('floatingText');
-
 function changeText() {
   textElem.style.opacity = 0;
   setTimeout(() => {
@@ -220,30 +213,37 @@ function changeText() {
     index = (index + 1) % words.length;
   }, 2000);
 }
-
 setInterval(changeText, 8000);
 
-// Enter button logic
+// Enter button
 const enterBtn = document.getElementById('enterButton');
 const landing = document.getElementById('landingScreen');
 const slideshow = document.getElementById('slideshow');
 const navbar = document.getElementById('navbar');
+const audioPlayer = document.getElementById('audioPlayer');
+
+// Playlist
+const playlist = [
+  "https://od.lk/s/OTBfNDQ0ODM0MDZf/Slowdive%20-%20Avalyn%20II%20%28Official%20Audio%29.mp3"
+];
+
+function playRandomSong() {
+  const randomIndex = Math.floor(Math.random() * playlist.length);
+  audioPlayer.src = playlist[randomIndex];
+  audioPlayer.play().then(() => {
+    console.log('Audio playing!');
+  }).catch(err => {
+    console.error('Audio playback failed:', err);
+  });
+}
 
 enterBtn.addEventListener('click', () => {
-  // Fade out landing screen
   landing.style.opacity = 0;
   setTimeout(() => landing.style.display = 'none', 1000);
-
-  // Fade in slideshow, text, navbar
   slideshow.style.opacity = 1;
   textElem.style.opacity = 1;
   navbar.style.opacity = 1;
-
-  // Start audio
-  const audio = document.getElementById('ambientAudio');
-  audio.play().catch(err => {
-    console.error('Audio playback failed:', err);
-  });
+  playRandomSong();
 });
 </script>
 
