@@ -46,10 +46,10 @@
   /* Slideshow */
   .slideshow {
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
     width: 80vw;
-    height: 80vh;
+    height: 70vh;
     transform: translate(-50%, -50%);
     z-index: 0;
     opacity: 0;
@@ -101,12 +101,11 @@
   /* Navbar */
   .navbar {
     position: fixed;
-    bottom: 0;
+    top: 20px;
     width: 100%;
     text-align: center;
-    z-index: 2;
+    z-index: 3;
     background: transparent;
-    padding: 15px 0;
     opacity: 0;
     transition: opacity 1s ease;
   }
@@ -115,11 +114,11 @@
     background: black;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    margin: 0 10px;
+    padding: 10px 30px;
+    margin: 0 20px;
     border: none;
     font-size: 14px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     cursor: pointer;
   }
 
@@ -131,14 +130,14 @@
   /* Digizine Button */
   .digizine-btn {
     position: fixed;
-    top: 90%;
+    top: 85%;
     left: 50%;
     transform: translateX(-50%);
     background: none;
     border: 2px solid white;
     color: white;
-    padding: 10px 25px;
-    font-size: 16px;
+    padding: 8px 18px;
+    font-size: 14px;
     letter-spacing: 2px;
     cursor: pointer;
     z-index: 3;
@@ -182,6 +181,7 @@
     z-index: -1;
   }
 
+  /* Flipbook Controls */
   #flipControls {
     position: fixed;
     bottom: 30px;
@@ -198,7 +198,7 @@
     padding: 10px 20px;
     margin: 0 10px;
     font-size: 14px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     cursor: pointer;
   }
 
@@ -211,7 +211,7 @@
 </head>
 <body>
 
-<!-- Landing Screen -->
+<!-- Landing -->
 <div class="landing" id="landingScreen">
   <button id="enterButton">enter</button>
 </div>
@@ -319,7 +319,7 @@ enterBtn.addEventListener('click', () => {
   playRandomSong();
 });
 
-// Flipbook button
+// Digizine open
 digizineBtn.addEventListener('click', () => {
   slideshow.style.opacity = 0;
   text.style.opacity = 0;
@@ -331,7 +331,7 @@ digizineBtn.addEventListener('click', () => {
   }, 1000);
 });
 
-// Flipbook Controls
+// Flipbook flipping
 const pages = document.querySelectorAll('.page');
 let currentPage = 0;
 
