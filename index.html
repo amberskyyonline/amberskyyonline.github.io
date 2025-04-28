@@ -13,25 +13,57 @@
     font-family: Helvetica, sans-serif;
   }
 
+  /* Landing Screen */
+  .landing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+  }
 
-.slideshow {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 80vw;  /* Centered but bigger */
-  height: 80vh;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-}
+  .landing button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
 
-.slideshow img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  animation: fade 36s infinite;
-}
+  .landing button:hover {
+    background: white;
+    color: black;
+  }
+
+  /* Slideshow */
+  .slideshow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    height: 80vh;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+
+  .slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    animation: fade 36s infinite;
+  }
 
   .slideshow img:nth-child(1) { animation-delay: 0s; }
   .slideshow img:nth-child(2) { animation-delay: 4s; }
@@ -51,20 +83,22 @@
     100% { opacity: 0; }
   }
 
+  /* Floating text */
   .text {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 24px; /* Bigger font */
-  letter-spacing: 2px;
-  text-align: center;
-  z-index: 1;
-  opacity: 1;
-  transition: opacity 2s ease;
-}
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
 
+  /* Navbar */
   .navbar {
     position: fixed;
     bottom: 0;
@@ -73,6 +107,8 @@
     z-index: 2;
     background: transparent;
     padding: 15px 0;
+    opacity: 0;
+    transition: opacity 2s ease;
   }
 
   .navbar .dropdown {
@@ -125,23 +161,6 @@
     display: block;
   }
 
-  .mute-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: black;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 12px;
-    cursor: pointer;
-    z-index: 3;
-  }
-
-  .mute-btn:hover {
-    background: white;
-    color: black;
-  }
 </style>
 </head>
 <body>
@@ -150,9 +169,14 @@
 <audio id="ambientAudio" loop>
   <source src="https://od.lk/f/OTBfNDQ0ODM0MDZf" type="audio/mp3">
 </audio>
-<button class="mute-btn" id="audioButton">play</button>
 
-<div class="slideshow">
+<!-- Landing Screen -->
+<div class="landing" id="landingScreen">
+  <button id="enterButton">enter</button>
+</div>
+
+<!-- Slideshow -->
+<div class="slideshow" id="slideshow">
   <img src="/images/still1.jpg" alt="Still 1">
   <img src="/images/still2.jpg" alt="Still 2">
   <img src="/images/still3.jpg" alt="Still 3">
@@ -164,9 +188,11 @@
   <img src="/images/still9.jpg" alt="Still 9">
 </div>
 
+<!-- Floating text -->
 <div class="text" id="floatingText">searching</div>
 
-<div class="navbar">
+<!-- Navbar -->
+<div class="navbar" id="navbar">
   <a href="/contact.html">contact</a>
   <div class="dropdown">
     <button class="dropbtn">gallery</button>
@@ -181,7 +207,7 @@
 
 <script>
 // Floating text cycle
-const words = ["searching", "questioning", "conspiracist dreamer", "you were loved before you were born", "falling out of grace with yourself", "is like falling into the unknown", "how dark it is to venture", "through life all alone", "soon you'll meet other souls", "some will help you grow", "others you'll never truly know"];
+const words = ["searching", "questioning", "conspiracist dreamer"];
 let index = 0;
 const textElem = document.getElementById('floatingText');
 
@@ -196,40 +222,28 @@ function changeText() {
 
 setInterval(changeText, 8000);
 
-const audio = document.getElementById('ambientAudio');
-const audioBtn = document.getElementById('audioButton');
-let isPlaying = false;
+// Enter button logic
+const enterBtn = document.getElementById('enterButton');
+const landing = document.getElementById('landingScreen');
+const slideshow = document.getElementById('slideshow');
+const navbar = document.getElementById('navbar');
 
-// Start audio on first user click ANYWHERE
-window.addEventListener('click', () => {
-  if (!isPlaying) {
-    audio.play().then(() => {
-      isPlaying = true;
-      audioBtn.textContent = 'pause';
-    }).catch(err => {
-      console.error('Playback failed:', err);
-    });
-  }
-}, { once: true }); // Only once!
+enterBtn.addEventListener('click', () => {
+  // Fade out landing screen
+  landing.style.opacity = 0;
+  setTimeout(() => landing.style.display = 'none', 1000);
 
-// Button to toggle play/pause
-audioBtn.addEventListener('click', () => {
-  if (isPlaying) {
-    audio.pause();
-    audioBtn.textContent = 'play';
-    isPlaying = false;
-  } else {
-    audio.play().then(() => {
-      audioBtn.textContent = 'pause';
-      isPlaying = true;
-    }).catch(err => {
-      console.error('Playback failed:', err);
-    });
-  }
+  // Fade in slideshow, text, navbar
+  slideshow.style.opacity = 1;
+  textElem.style.opacity = 1;
+  navbar.style.opacity = 1;
+
+  // Start audio
+  const audio = document.getElementById('ambientAudio');
+  audio.play().catch(err => {
+    console.error('Audio playback failed:', err);
+  });
 });
-
-
-
 </script>
 
 </body>
