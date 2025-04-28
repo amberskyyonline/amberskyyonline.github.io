@@ -59,17 +59,40 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 2px;
     text-align: center;
     z-index: 1;
-    animation: textFade 8s infinite;
+    opacity: 1;
+    transition: opacity 2s ease;
   }
 
-  @keyframes textFade {
-    0%, 100% { opacity: 0; }
-    10%, 30% { opacity: 1; }
-    40%, 100% { opacity: 0; }
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    background: transparent;
+    padding: 15px 0;
+  }
+
+  .navbar a {
+    display: inline-block;
+    background: black;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+  }
+
+  .navbar a:hover {
+    background: white;
+    color: black;
   }
 </style>
 </head>
@@ -94,16 +117,30 @@
 
 <div class="text" id="floatingText">searching</div>
 
+<div class="navbar">
+  <a href="/contact.html">contact</a>
+  <a href="/gallery.html">gallery</a>
+ <a href="https://freexonemag.wordpress.com/">blog</a>
+  <a href="https://charade212.com/" target="_blank">shop</a>
+</div>
+
+
 <script>
-// Floating text cycle
+// Morphing floating text
 const words = ["searching", "questioning", "conspiracist dreamer"];
 let index = 0;
 const textElem = document.getElementById('floatingText');
 
-setInterval(() => {
-  index = (index + 1) % words.length;
-  textElem.textContent = words[index];
-}, 8000);
+function changeText() {
+  textElem.style.opacity = 0;
+  setTimeout(() => {
+    textElem.textContent = words[index];
+    textElem.style.opacity = 1;
+    index = (index + 1) % words.length;
+  }, 2000); // fade out duration
+}
+
+setInterval(changeText, 8000);
 </script>
 
 </body>
