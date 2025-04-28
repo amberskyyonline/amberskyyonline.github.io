@@ -15,11 +15,13 @@
 
   .slideshow {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 50%;
+    left: 50%;
+    width: 60vw;   /* Smaller box */
+    height: 60vh;
+    transform: translate(-50%, -50%);
     z-index: 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8); /* Soft glow around the box */
   }
 
   .slideshow img {
@@ -27,10 +29,9 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background: black;
     opacity: 0;
     animation: fade 36s infinite;
-    filter: contrast(1.1) brightness(0.9) grayscale(0.2);
+    filter: contrast(0.8) brightness(0.8) grayscale(0.3); /* Washed out */
   }
 
   .slideshow img:nth-child(1) { animation-delay: 0s; }
@@ -57,25 +58,21 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255,255,255,0.03);
+    background: url('https://i.gifer.com/7VE.gif') repeat; /* Grain GIF */
+    background-size: cover;
+    opacity: 0.15; /* adjust grain strength */
     pointer-events: none;
     z-index: 1;
-    mix-blend-mode: multiply;
-    animation: grainMove 6s infinite;
-  }
-
-  @keyframes grainMove {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
+    mix-blend-mode: screen;
   }
 
   .text {
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    bottom: 5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 2px;
     text-align: center;
     z-index: 2;
