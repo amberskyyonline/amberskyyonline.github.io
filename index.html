@@ -128,22 +128,23 @@
   }
 
   /* Digizine Button */
-  .digizine-btn {
-    position: fixed;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: none;
-    border: 2px solid white;
-    color: white;
-    padding: 8px 18px;
-    font-size: 14px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    z-index: 3;
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
+ .digizine-btn {
+  position: absolute;
+  top: 105%; /* BELOW the slideshow */
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 18px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 
   .digizine-btn:hover {
     background: white;
@@ -225,13 +226,10 @@
 <div class="slideshow" id="slideshow">
   <img src="/images/still1.jpg">
   <img src="/images/still2.jpg">
-  <img src="/images/still3.jpg">
-  <img src="/images/still4.jpg">
-  <img src="/images/still5.jpg">
-  <img src="/images/still6.jpg">
-  <img src="/images/still7.jpg">
-  <img src="/images/still8.jpg">
-  <img src="/images/still9.jpg">
+  ...
+  
+  <!-- Digizine Button INSIDE the slideshow -->
+  <button class="digizine-btn" id="digizineButton">digizine</button>
 </div>
 
 <!-- Floating Text -->
@@ -251,15 +249,15 @@
 
 <!-- Book -->
 <div class="book" id="book">
-  <div class="page" style="background-image: url('/images/still1.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still2.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still3.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still4.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still5.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still6.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still7.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still8.jpg');"></div>
-  <div class="page" style="background-image: url('/images/still9.jpg');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
+  <div class="page" style="background-image: url('/images/');"></div>
 </div>
 
 <!-- Flipbook Controls -->
