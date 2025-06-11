@@ -1,63 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>life archived — amberskyy.online</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       background: black;
       color: white;
       font-family: Helvetica, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    .container {
+    .page {
+      min-height: 100vh;
       padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .page img {
+      width: auto;
+      max-width: 90vw;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      margin-bottom: 30px;
+      border: 1px solid white;
+    }
+
+    .caption {
+      font-size: 14px;
+      color: #bbb;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .title {
+      font-size: 36px;
+      letter-spacing: 3px;
+      text-transform: lowercase;
+      margin-bottom: 10px;
       text-align: center;
     }
 
-    h1 {
-      font-size: 36px;
-      letter-spacing: 4px;
-      text-transform: lowercase;
-    }
-
-    p {
-      color: #ccc;
+    .subtitle {
+      color: #999;
       font-size: 16px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-
-    .archive-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .archive-grid img {
-      width: 300px;
-      max-width: 90vw;
-      object-fit: cover;
-      border: 1px solid white;
-      transition: transform 0.3s ease;
-    }
-
-    .archive-grid img:hover {
-      transform: scale(1.05);
+      margin-bottom: 40px;
+      text-align: center;
     }
 
     .backlink {
-      margin-top: 60px;
       display: inline-block;
-      color: white;
+      margin: 60px 0;
       text-decoration: none;
+      color: white;
       border: 1px solid white;
       padding: 10px 20px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .backlink:hover {
@@ -67,18 +78,37 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>life archived</h1>
-    <p></p>
 
-    <div class="archive-grid">
-      <img src="images01/archive1.jpg" alt="archived moment 1">
-      <img src="images01/archive2.jpg" alt="archived moment 2">
-      <img src="images01/archive3.jpg" alt="archived moment 3">
-    </div>
+  <!-- Opening Page -->
+  <section class="page">
+    <div class="title">life archived</div>
+    <div class="subtitle">a fragmented memory bank<br>flickering in the dark</div>
+    <a href="/" class="backlink">← return home</a>
+  </section>
 
+  <!-- Memory Pages -->
+  <section class="page">
+    <img src="images01/archive1.jpg" alt="memory 1" />
+    <div class="caption">june 2005 – the light hit different that day.</div>
+  </section>
+
+  <section class="page">
+    <img src="images01/archive2.jpg" alt="memory 2" />
+    <div class="caption">a familiar hallway. something lost, something waiting.</div>
+  </section>
+
+  <section class="page">
+    <img src="images01/archive3.jpg" alt="memory 3" />
+    <div class="caption">august 2009 – i was there, and then i wasn’t.</div>
+  </section>
+
+  <!-- Add more .page sections as you build -->
+
+  <!-- Ending -->
+  <section class="page">
+    <div class="caption">this book is never really closed. <br> just paused.</div>
     <a href="/" class="backlink">← back to main</a>
-  </div>
+  </section>
+
 </body>
 </html>
-
