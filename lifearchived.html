@@ -15,35 +15,63 @@
       background: black;
       color: white;
       font-family: Helvetica, sans-serif;
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      overflow: hidden;
     }
 
-    .page {
-      min-height: 100vh;
-      padding: 80px 20px;
+    .slideshow-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-bottom: 1px solid #333;
     }
 
-    .page img {
-      width: auto;
+    .slide {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide img {
       max-width: 90vw;
-      height: auto;
-      max-height: 70vh;
+      max-height: 80vh;
       object-fit: contain;
-      margin-bottom: 30px;
       border: 1px solid white;
     }
 
-    .caption {
-      font-size: 14px;
-      color: #bbb;
+    .arrow {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      color: white;
+      font-size: 24px;
+      user-select: none;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid white;
+    }
+
+    .arrow:hover {
+      background: white;
+      color: black;
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    .title-block {
+      position: absolute;
+      top: 40px;
       text-align: center;
-      max-width: 600px;
+      width: 100%;
     }
 
     .title {
@@ -51,19 +79,16 @@
       letter-spacing: 3px;
       text-transform: lowercase;
       margin-bottom: 10px;
-      text-align: center;
     }
 
     .subtitle {
       color: #999;
       font-size: 16px;
-      margin-bottom: 40px;
-      text-align: center;
     }
 
     .backlink {
-      display: inline-block;
-      margin: 60px 0;
+      position: absolute;
+      bottom: 40px;
       text-decoration: none;
       color: white;
       border: 1px solid white;
@@ -84,12 +109,57 @@
     <source src="https://od.lk/s/OTBfNDQ2MzI3MTJf/MJ%20Tribute_%20_Wanna%20Be%20Where%20You%20Are%20%28String%20Mix%29_%20%5BProduced%20by%20J.PERIOD%5D.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Opening Page -->
-  <section class="page">
+  <!-- Title Block -->
+  <div class="title-block">
     <div class="title">life archived</div>
     <div class="subtitle">a fragmented memory bank<br>flickering in the dark</div>
+  </div>
+
+  <!-- Slideshow Container -->
+  <div class="slideshow-container">
+    <!-- Slides -->
+    <div class="slide" style="display: flex;">
+      <img src="images01/archive1.jpg" alt="memory 1" />
+    </div>
+
+    <div class="slide">
+      <img src="images01/archive2.jpg" alt="memory 2" />
+    </div>
+
+    <div class="slide">
+      <img src="images01/archive3.jpg" alt="memory 3" />
+    </div>
+
+    <!-- Arrows -->
+    <a class="arrow prev" onclick="changeSlide(-1)">❮</a>
+    <a class="arrow next" onclick="changeSlide(1)">❯</a>
+
+    <!-- Backlink -->
     <a href="/" class="backlink">← return home</a>
-  </section>
+  </div>
+
+  <!-- Slideshow Script -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlide(index) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[index].style.display = "flex";
+    }
+
+    function changeSlide(n) {
+      slideIndex += n;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      showSlide(slideIndex);
+    }
+
+    // Auto-init first slide
+    showSlide(slideIndex);
+  </script>
 
 </body>
 </html>
