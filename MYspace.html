@@ -1,91 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Welc0m2MYspace</title>
+
   <style>
     body {
       background-image: url("https://i.postimg.cc/7ZbkthFZ/green.jpg");
+      font-family: 'andale mono', monospace;
       color: #294907;
-      font-family: 'Andale Mono', monospace;
       margin: 0;
       padding: 0;
     }
-    .topbar, .heading, h4, .links {
-      background-color: #437B09;
-      color: black;
-      padding: 5px 10px;
-    }
-    .profile {
+
+    .container {
       display: flex;
       flex-wrap: wrap;
-      padding: 10px;
+      max-width: 1200px;
+      margin: 20px auto;
+      gap: 20px;
     }
-    .left {
-      width: 25%;
-      padding: 10px;
+
+    .col.left {
+      width: 35%;
+      background-color: #6eb920;
+      padding: 15px;
+      border: 2px solid #437B09;
     }
-    .right {
-      width: 75%;
-      padding: 10px;
+
+    .col.right {
+      width: 60%;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 2px solid #437B09;
     }
+
+    h1, h4 {
+      color: #000;
+      background-color: #437B09;
+      padding: 5px;
+      margin: 10px 0;
+    }
+
     .profile-pic img {
       width: 100%;
-      border: 2px solid #000;
+      border: 4px solid #294907;
+      margin-bottom: 10px;
     }
-    .top8 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+
+    .interests, .links, .blurbs {
       margin-top: 20px;
     }
-    .top8 .person {
-      text-align: center;
-      font-size: 14px;
+
+    a {
+      color: #000;
+      text-decoration: underline;
     }
-    .top8 .person img {
-      width: 100%;
-      max-width: 100px;
-      border: 2px solid #000;
+
+    a:hover {
+      text-decoration: none;
     }
-    .archive-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 10px;
-    }
-    .archive-gallery img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #000;
-    }
-    .jelly {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .jelly img {
+
+    img {
       max-width: 100%;
-    }
-    audio {
-      display: none;
+      height: auto;
     }
   </style>
 </head>
 <body>
 
-<!-- hidden autoplay audio -->
-<audio autoplay loop>
+<div class="container">
+  <div class="col left">
+    <h1>amber skyy</h1>
+    <div class="profile-pic">
+      <img src="images02/IMG_1150.JPG" alt="amber skyy pfp">
+    </div>
+    <p>"relaxin, watching YouTube"</p>
+    <p><strong>Mood:</strong> on happy pills</p>
+
+    <div class="interests">
+      <h4>Interests</h4>
+      <p><strong>General:</strong> graphic design, architecture, fast cars, clothes, sleeping and $$$</p>
+      <p><strong>Music:</strong> everything except top 40 bull$h!!</p>
+      <p><strong>Books:</strong> manga, comics & magazines</p>
+      <p><strong>Heroes:</strong> me</p>
+    </div>
+
+    <div class="links">
+      <h4>Links</h4>
+      <p><a href="https://soundcloud.com/lilbabybash" target="_blank">SoundCloud</a></p>
+    </div>
+
+    <div class="blurbs">
+      <div class="section">
+        <h4>About me:</h4>
+        <p>27. NYC.</p>
+
+        <a href="http://www.JellyMuffin.com/images/misc_graphics/" rel="ugc">
+          <img src="https://external-media.spacehey.net/media/s2hlaZvhUjS2EdjSDoz42-yGVo0sNGrEr5U6NBDZpyc4=/http://images.jellymuffin.com/images/misc_graphics/images/apic147.jpg" alt="JellyMuffin graphic">
+        </a>
+        <div style="position: fixed; right: 1px; bottom: 9px; z-index: 200;">
+          <a href="https://alturl.com/p749b" rel="ugc">
+            <img src="https://external-media.spacehey.net/media/seuneIjU7iAljvC6W2oT5Zj52mXVj4A-cG9xp3WVT-w4=/https://saucydiva.neocities.org/img/gifs/ipodwinner.gif" alt="WINNER!!!">
+          </a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Who I'd like to meet:</h4>
+        <p>my future self</p>
+        <a href="http://www.JellyMuffin.com/images/animated/" rel="ugc">
+          <img src="https://external-media.spacehey.net/media/skesfrxrNJ6O2DDZshzdCGGDDtgbK7gUtqPJNNPtcBjE=/http://images.jellymuffin.com/images/animated/images/animated71.gif" alt="JellyMuffin animated">
+        </a>
+        <a href="http://www.JellyMuffin.com/images/puerto_rican/" rel="ugc">
+          <img src="https://external-media.spacehey.net/media/ssWEZll9DxMVXZAUI4_G0RlwOnq5ffUANfV_m6NlZ3f8=/http://images.jellymuffin.com/images/puerto_rican/images/123.gif" alt="Puerto Rican pride">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col right">
+    <!-- Blank for now -->
+  </div>
+</div>
+
+<!-- 🎧 Hidden Audio Player -->
+<audio autoplay loop hidden>
   <source src="https://od.lk/s/OTBfNDMzOTE1MzRf/Pharrell%20%20Feat%20Snoop%20Dogg%20-That%20Girl.mp3" type="audio/mpeg">
 </audio>
 
-<div class="topbar">
-  <strong>amber skyy's archive</strong>
-</div>
-
-<div class="profile">
-  <div class="left">
-    <div class="profile-pic">
-      <img src="images02/IMG_1150.JPG" alt="amber skyy" />
-    </div>
-    <h4>Mood: on happy pills</h4>
-    <div class="jelly">
+</body>
+</html>
