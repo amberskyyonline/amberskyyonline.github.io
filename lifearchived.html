@@ -5,33 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>life archived — amberskyy.online</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    body {
+    html, body {
+      width: 100%;
+      height: 100%;
       background: black;
       color: white;
       font-family: Helvetica, sans-serif;
       overflow: hidden;
     }
 
-    .slideshow-container {
+    .main-wrapper {
       position: relative;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    .slideshow-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1;
     }
 
     .slide {
       display: none;
       justify-content: center;
       align-items: center;
+      height: 100%;
     }
 
     .slide img {
       max-width: 90vw;
-      max-height: 80vh;
+      max-height: 75vh;
       object-fit: contain;
       border: 1px solid white;
     }
@@ -40,13 +57,14 @@
       cursor: pointer;
       position: absolute;
       top: 50%;
-      padding: 16px;
-      color: white;
-      font-size: 24px;
-      user-select: none;
       transform: translateY(-50%);
+      padding: 16px;
+      font-size: 24px;
+      color: white;
       background: rgba(0, 0, 0, 0.5);
       border: 1px solid white;
+      user-select: none;
+      z-index: 3;
     }
 
     .arrow:hover {
@@ -60,30 +78,34 @@
     .title-block {
       position: absolute;
       top: 40px;
-      text-align: center;
       width: 100%;
+      text-align: center;
+      z-index: 3;
     }
 
     .title {
       font-size: 36px;
       letter-spacing: 3px;
       text-transform: lowercase;
-      margin-bottom: 10px;
     }
 
     .subtitle {
       color: #999;
       font-size: 16px;
+      margin-top: 5px;
     }
 
     .backlink {
       position: absolute;
       bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
       text-decoration: none;
       color: white;
       border: 1px solid white;
       padding: 10px 20px;
       transition: 0.3s ease;
+      z-index: 3;
     }
 
     .backlink:hover {
@@ -99,23 +121,29 @@
     <source src="https://od.lk/s/OTBfNDQ2MzI3MTJf/MJ%20Tribute_%20_Wanna%20Be%20Where%20You%20Are%20%28String%20Mix%29_%20%5BProduced%20by%20J.PERIOD%5D.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- Title Block -->
-  <div class="title-block">
-    <div class="title">life archived</div>
-    <div class="subtitle">a fragmented memory bank<br>flickering in the dark</div>
-  </div>
+  <div class="main-wrapper">
 
-  <!-- Slideshow Container -->
-  <div class="slideshow-container" id="slideshow">
-    <a class="arrow prev" onclick="changeSlide(-1)">❮</a>
-    <a class="arrow next" onclick="changeSlide(1)">❯</a>
+    <!-- Title -->
+    <div class="title-block">
+      <div class="title">life archived</div>
+      <div class="subtitle">a fragmented memory bank<br>flickering in the dark</div>
+    </div>
+
+    <!-- Slideshow -->
+    <div class="slideshow-container" id="slideshow">
+      <a class="arrow prev" onclick="changeSlide(-1)">❮</a>
+      <a class="arrow next" onclick="changeSlide(1)">❯</a>
+    </div>
+
+    <!-- Back Link -->
     <a href="/" class="backlink">← return home</a>
+
   </div>
 
   <!-- Slideshow Script -->
   <script>
     const slideshow = document.getElementById('slideshow');
-    const totalSlides = 61; // Set this to however many images you have
+    const totalSlides = 61; // Update this to your total number of images
     const folder = "images02/";
     const extensions = [".jpg", ".jpeg", ".png"];
     let slideIndex = 0;
@@ -145,7 +173,6 @@
           img.src = src;
           img.alt = `slide ${i}`;
           slide.appendChild(img);
-
           slideshow.insertBefore(slide, slideshow.querySelector('.prev'));
         }
       }
@@ -168,7 +195,6 @@
       showSlide(slideIndex);
     }
 
-    // Start loading slides when page loads
     loadSlides();
   </script>
 
