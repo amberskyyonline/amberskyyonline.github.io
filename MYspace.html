@@ -13,6 +13,10 @@
       padding: 0;
     }
 
+    * {
+      cursor: url(https://cur.cursors-4u.net/user/use-1/use164.cur), auto !important;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -67,19 +71,37 @@
     }
 
     .online {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 5px;
       font-weight: bold;
       color: #000;
       background-color: #c3ffbc;
-      padding: 5px;
+      padding: 2px 6px;
       border: 1px solid #437B09;
       margin-top: 10px;
+      font-size: 13px;
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    .online img {
+      width: 14px;
+      height: 14px;
+    }
+
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
     }
   </style>
 </head>
 <body>
+
+<!-- Evil Monkey Badge -->
+<a href="https://www.cursors-4u.com/cursor/2011/02/06/evil-monkey-family-guy.html" target="_blank" title="Evil Monkey - Family Guy">
+  <img src="https://cur.cursors-4u.net/cursor.png" alt="Evil Monkey - Family Guy" style="position:absolute; top: 0px; right: 0px; z-index:999;">
+</a>
 
 <div class="container">
   <div class="col left">
@@ -90,7 +112,7 @@
     <p>"relaxin, watching YouTube"</p>
     <p><strong>Mood:</strong> on happy pills</p>
     <p class="online">
-      <img src="https://static.spacehey.net/img/green_person.svg" aria-hidden="true" alt="Online icon" loading="lazy"> ONLINE!
+      <img src="https://static.spacehey.net/img/green_person.svg" alt="Online icon"> ONLINE!
     </p>
 
     <div class="interests">
@@ -139,7 +161,7 @@
 </audio>
 
 <!-- 🏆 Corner iPod Winner gif -->
-<div style="float: ; max-width: 100%; height: auto; position: fixed; right: 1px; bottom: 9px; z-index: 200;">
+<div style="position: fixed; right: 1px; bottom: 9px; z-index: 200;">
   <a href="https://alturl.com/p749b">
     <img src="https://saucydiva.neocities.org/img/gifs/ipodwinner.gif" alt="WINNER!!!"/>
   </a>
