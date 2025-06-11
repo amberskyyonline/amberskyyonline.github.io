@@ -115,40 +115,66 @@
   </div>
 
   <!-- Slideshow Script -->
-  <script>
-    const slideshow = document.getElementById('slideshow');
-    const totalSlides = 61; // ← Change this number if you have more or fewer images
-    let slideIndex = 0;
+ <script>
+  const slideshow = document.getElementById('slideshow');
+  const totalSlides = 61; // change if needed
+  const folder = "images02/";
+  const extensions = [".jpg", ".jpeg", ".png"];
+  let slideIndex = 0;
 
+  function tryImage(index) {
+    return new Promise((resolve) => {
+      let found = false;
+      let tryNext = (extIndex = 0) => {
+        if (extIndex >= extensions.length) return resolve(null);
+        const img = new Image();
+        img.src = folder + index + extensions[extIndex];
+        img.onload = () => resolve(img.src);
+        img.onerror = () => tryNext(extIndex + 1);
+      };
+      tryNext();
+    });
+  }
+
+  async function loadSlides() {
     for (let i = 1; i <= totalSlides; i++) {
-      const slide = document.createElement('div');
-      slide.className = 'slide';
-      if (i === 1) slide.style.display = 'flex';
+      const src = await tryImage(i);
+      if (src) {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        if (i === 1) slide.style.display = 'flex';
 
-      const img = document.createElement('img');
-      img.src = `images02/${i}.jpg`; // your images must be named 1.jpg, 2.jpg, etc
-      img.alt = `slide ${i}`;
-      slide.appendChild(img);
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `slide ${i}`;
+        slide.appendChild(img);
 
-      slideshow.insertBefore(slide, slideshow.querySelector('.prev'));
-    }
-
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlide(index) {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slideshow.insertBefore(slide, slideshow.querySelector('.prev'));
       }
-      slides[index].style.display = "flex";
     }
 
-    function changeSlide(n) {
-      slideIndex += n;
-      if (slideIndex < 0) slideIndex = slides.length - 1;
-      if (slideIndex >= slides.length) slideIndex = 0;
-      showSlide(slideIndex);
+    // Activate slideshow
+    showSlide(slideIndex);
+  }
+
+  function showSlide(index) {
+    const slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
     }
-  </script>
+    slides[index].style.display = "flex";
+  }
+
+  function changeSlide(n) {
+    const slides = document.getElementsByClassName("slide");
+    slideIndex += n;
+    if (slideIndex < 0) slideIndex = slides.length - 1;
+    if (slideIndex >= slides.length) slideIndex = 0;
+    showSlide(slideIndex);
+  }
+
+  // Load on page start
+
 
 </body>
 </html>
