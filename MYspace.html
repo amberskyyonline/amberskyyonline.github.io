@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -108,6 +108,46 @@
       height: 14px;
     }
 
+    .top8 {
+      margin-top: 40px;
+      background-color: #6eb920;
+      border: 2px solid #437B09;
+      padding: 15px;
+    }
+
+    .top8 h4 {
+      background-color: #437B09;
+      color: #000;
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+
+    .top8-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+
+    .friend img {
+      width: 100%;
+      border: 2px solid #294907;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .friend p {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #000;
+    }
+
+    canvas {
+      display: block;
+      margin: 20px auto;
+      background: black;
+    }
+
     @keyframes blink {
       50% {
         opacity: 0;
@@ -117,13 +157,13 @@
 </head>
 <body>
 
-<!-- Evil Monkey Badge -->
+<!-- Evil Monkey Cursor Badge -->
 <a href="https://www.cursors-4u.com/cursor/2011/02/06/evil-monkey-family-guy.html" target="_blank" title="Evil Monkey - Family Guy">
   <img src="https://cur.cursors-4u.net/cursor.png" alt="Evil Monkey - Family Guy" style="position:absolute; top: 0px; right: 0px; z-index:999;">
 </a>
 
 <div class="container">
-  <div class="col left">
+  <div class="col.left">
     <h1 class="graffiti">amber skyy</h1>
     <div class="profile-pic">
       <img src="images02/IMG_1150.JPG" alt="amber skyy pfp">
@@ -170,16 +210,84 @@
   </div>
 
   <div class="col right">
-    <!-- Blank for now -->
+    <div class="top8">
+      <h4>My Top 8</h4>
+      <div class="top8-grid">
+        <div class="friend"><img src="images02/DSCN2254%20(1).JPG"><p>@nat<3</p></div>
+        <div class="friend"><img src="images02/DSCN2034.JPG"><p>@sadpizzaboi</p></div>
+        <div class="friend"><img src="images02/05900024.JPG"><p>@bbychain</p></div>
+        <div class="friend"><img src="images02/DSCN1931.JPG"><p>@pr0blemchild</p></div>
+        <div class="friend"><img src="images02/88070025.JPG"><p>@mayb3awitch</p></div>
+        <div class="friend"><img src="images02/DSCN2191.JPG"><p>@edenized</p></div>
+        <div class="friend"><img src="images02/DSCN1079.JPG"><p>@sharzuniverse</p></div>
+        <div class="friend"><img src="images02/DSCN1924.JPG"><p>@hazmat</p></div>
+      </div>
+    </div>
+
+    <h4>Now Playing</h4>
+    <canvas id="visualizer" width="400" height="100"></canvas>
+    <audio id="player" controls autoplay></audio>
   </div>
 </div>
 
-<!-- 🎧 Hidden Audio Player -->
-<audio autoplay loop hidden>
-  <source src="https://od.lk/s/OTBfNDMzOTE1MzRf/Pharrell%20%20Feat%20Snoop%20Dogg%20-That%20Girl.mp3" type="audio/mpeg">
-</audio>
+<!-- Audio + Visualizer Script -->
+<script>
+  const playlist = [
+    "https://od.lk/s/OTBfNDMzOTE1MzRf/Pharrell%20%20Feat%20Snoop%20Dogg%20-That%20Girl.mp3",
+    "https://od.lk/s/OTBfNDQ2MzI4NDZf/Nelly%20Furtado%20-%20Promiscuous%20%28Official%20Music%20Video%29%20ft.%20Timbaland.mp3",
+    "https://od.lk/s/OTBfNDMzOTE1MzVf/Fergie%20-%20London%20Bridge%20%28oh%20shit%29%20%20HQ.mp3",
+    "https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3",
+    "https://od.lk/s/OTBfNDMzOTE4OTJf/Viva%20La%20White%20Girl.mp3",
+    "https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3",
+    "https://od.lk/s/OTBfNDQ2MzI4ODBf/Slow%20Down%20%28Radio%20Edit%29.mp3"
+  ];
 
-<!-- 🏆 Corner iPod Winner gif -->
+  let current = 0;
+  const player = document.getElementById('player');
+  const canvas = document.getElementById('visualizer');
+  const ctx = canvas.getContext('2d');
+
+  player.src = playlist[current];
+  player.play();
+
+  player.addEventListener('ended', () => {
+    current = (current + 1) % playlist.length;
+    player.src = playlist[current];
+    player.play();
+  });
+
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const source = audioCtx.createMediaElementSource(player);
+  const analyser = audioCtx.createAnalyser();
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+  analyser.fftSize = 256;
+
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
+  function draw() {
+    requestAnimationFrame(draw);
+    analyser.getByteFrequencyData(dataArray);
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const barWidth = (canvas.width / bufferLength) * 2.5;
+    let x = 0;
+    for (let i = 0; i < bufferLength; i++) {
+      const barHeight = dataArray[i];
+      const r = barHeight + 25;
+      const g = 250 * (i / bufferLength);
+      const b = 50;
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
+      x += barWidth + 1;
+    }
+  }
+
+  draw();
+</script>
+
+<!-- iPod Winner badge -->
 <div style="position: fixed; right: 1px; bottom: 9px; z-index: 200;">
   <a href="https://alturl.com/p749b">
     <img src="https://saucydiva.neocities.org/img/gifs/ipodwinner.gif" alt="WINNER!!!"/>
