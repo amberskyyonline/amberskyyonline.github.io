@@ -27,7 +27,6 @@
       display: none;
       justify-content: center;
       align-items: center;
-      text-align: center;
     }
 
     .slide img {
@@ -108,73 +107,70 @@
 
   <!-- Slideshow Container -->
   <div class="slideshow-container" id="slideshow">
-    <!-- Slides will be auto-generated below -->
     <a class="arrow prev" onclick="changeSlide(-1)">❮</a>
     <a class="arrow next" onclick="changeSlide(1)">❯</a>
     <a href="/" class="backlink">← return home</a>
   </div>
 
   <!-- Slideshow Script -->
- <script>
-  const slideshow = document.getElementById('slideshow');
-  const totalSlides = 61; // change if needed
-  const folder = "images02/";
-  const extensions = [".jpg", ".jpeg", ".png"];
-  let slideIndex = 0;
+  <script>
+    const slideshow = document.getElementById('slideshow');
+    const totalSlides = 61; // Set this to however many images you have
+    const folder = "images02/";
+    const extensions = [".jpg", ".jpeg", ".png"];
+    let slideIndex = 0;
 
-  function tryImage(index) {
-    return new Promise((resolve) => {
-      let found = false;
-      let tryNext = (extIndex = 0) => {
-        if (extIndex >= extensions.length) return resolve(null);
-        const img = new Image();
-        img.src = folder + index + extensions[extIndex];
-        img.onload = () => resolve(img.src);
-        img.onerror = () => tryNext(extIndex + 1);
-      };
-      tryNext();
-    });
-  }
+    function tryImage(index) {
+      return new Promise((resolve) => {
+        let tryNext = (extIndex = 0) => {
+          if (extIndex >= extensions.length) return resolve(null);
+          const img = new Image();
+          img.src = folder + index + extensions[extIndex];
+          img.onload = () => resolve(img.src);
+          img.onerror = () => tryNext(extIndex + 1);
+        };
+        tryNext();
+      });
+    }
 
-  async function loadSlides() {
-    for (let i = 1; i <= totalSlides; i++) {
-      const src = await tryImage(i);
-      if (src) {
-        const slide = document.createElement('div');
-        slide.className = 'slide';
-        if (i === 1) slide.style.display = 'flex';
+    async function loadSlides() {
+      for (let i = 1; i <= totalSlides; i++) {
+        const src = await tryImage(i);
+        if (src) {
+          const slide = document.createElement('div');
+          slide.className = 'slide';
+          if (i === 1) slide.style.display = 'flex';
 
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `slide ${i}`;
-        slide.appendChild(img);
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = `slide ${i}`;
+          slide.appendChild(img);
 
-        slideshow.insertBefore(slide, slideshow.querySelector('.prev'));
+          slideshow.insertBefore(slide, slideshow.querySelector('.prev'));
+        }
       }
+      showSlide(slideIndex);
     }
 
-    // Activate slideshow
-    showSlide(slideIndex);
-  }
-
-  function showSlide(index) {
-    const slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    function showSlide(index) {
+      const slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[index].style.display = "flex";
     }
-    slides[index].style.display = "flex";
-  }
 
-  function changeSlide(n) {
-    const slides = document.getElementsByClassName("slide");
-    slideIndex += n;
-    if (slideIndex < 0) slideIndex = slides.length - 1;
-    if (slideIndex >= slides.length) slideIndex = 0;
-    showSlide(slideIndex);
-  }
+    function changeSlide(n) {
+      const slides = document.getElementsByClassName("slide");
+      slideIndex += n;
+      if (slideIndex < 0) slideIndex = slides.length - 1;
+      if (slideIndex >= slides.length) slideIndex = 0;
+      showSlide(slideIndex);
+    }
 
-  // Load on page start
-
+    // Start loading slides when page loads
+    loadSlides();
+  </script>
 
 </body>
 </html>
