@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Welc0m2MYspace</title>
 
+  <!-- Graffiti font -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
   <style>
     body {
       background-image: url("https://i.postimg.cc/7ZbkthFZ/green.jpg");
@@ -39,11 +42,23 @@
       border: 2px solid #437B09;
     }
 
-    h1, h4 {
+    h4 {
       color: #000;
       background-color: #437B09;
       padding: 5px;
       margin: 10px 0;
+    }
+
+    .graffiti {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 36px;
+      text-align: center;
+      animation: blink 1s steps(2, start) infinite;
+      color: #000;
+      background-color: #437B09;
+      padding: 5px;
+      margin: 10px 0;
+      text-shadow: 1px 1px #6eb920;
     }
 
     .profile-pic img {
@@ -90,8 +105,8 @@
     }
 
     @keyframes blink {
-      to {
-        visibility: hidden;
+      50% {
+        opacity: 0;
       }
     }
   </style>
@@ -105,7 +120,7 @@
 
 <div class="container">
   <div class="col left">
-    <h1>amber skyy</h1>
+    <h1 class="graffiti">amber skyy</h1>
     <div class="profile-pic">
       <img src="images02/IMG_1150.JPG" alt="amber skyy pfp">
     </div>
