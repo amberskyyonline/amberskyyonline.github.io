@@ -12,30 +12,47 @@
     }
 
     html, body {
-      width: 100%;
       height: 100%;
       background: black;
       color: white;
       font-family: Helvetica, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       overflow: hidden;
     }
 
-    .main-wrapper {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
+    .title-block {
+      text-align: center;
+      padding: 40px 20px 20px;
+      z-index: 2;
+    }
+
+    .title {
+      font-size: 36px;
+      letter-spacing: 3px;
+      text-transform: lowercase;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #999;
+      margin-top: 5px;
     }
 
     .slideshow-container {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: relative;
       width: 100%;
       height: 100%;
+      max-height: 70vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
       z-index: 1;
     }
 
@@ -43,12 +60,11 @@
       display: none;
       justify-content: center;
       align-items: center;
-      height: 100%;
     }
 
     .slide img {
+      max-height: 100%;
       max-width: 90vw;
-      max-height: 75vh;
       object-fit: contain;
       border: 1px solid white;
     }
@@ -60,10 +76,9 @@
       transform: translateY(-50%);
       padding: 16px;
       font-size: 24px;
-      color: white;
       background: rgba(0, 0, 0, 0.5);
+      color: white;
       border: 1px solid white;
-      user-select: none;
       z-index: 3;
     }
 
@@ -75,37 +90,14 @@
     .prev { left: 20px; }
     .next { right: 20px; }
 
-    .title-block {
-      position: absolute;
-      top: 40px;
-      width: 100%;
-      text-align: center;
-      z-index: 3;
-    }
-
-    .title {
-      font-size: 36px;
-      letter-spacing: 3px;
-      text-transform: lowercase;
-    }
-
-    .subtitle {
-      color: #999;
-      font-size: 16px;
-      margin-top: 5px;
-    }
-
     .backlink {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-bottom: 40px;
       text-decoration: none;
       color: white;
       border: 1px solid white;
       padding: 10px 20px;
       transition: 0.3s ease;
-      z-index: 3;
+      z-index: 2;
     }
 
     .backlink:hover {
@@ -121,29 +113,25 @@
     <source src="https://od.lk/s/OTBfNDQ2MzI3MTJf/MJ%20Tribute_%20_Wanna%20Be%20Where%20You%20Are%20%28String%20Mix%29_%20%5BProduced%20by%20J.PERIOD%5D.mp3" type="audio/mpeg" />
   </audio>
 
-  <div class="main-wrapper">
-
-    <!-- Title -->
-    <div class="title-block">
-      <div class="title">life archived</div>
-      <div class="subtitle">a fragmented memory bank<br>flickering in the dark</div>
-    </div>
-
-    <!-- Slideshow -->
-    <div class="slideshow-container" id="slideshow">
-      <a class="arrow prev" onclick="changeSlide(-1)">❮</a>
-      <a class="arrow next" onclick="changeSlide(1)">❯</a>
-    </div>
-
-    <!-- Back Link -->
-    <a href="/" class="backlink">← return home</a>
-
+  <!-- Title Block -->
+  <div class="title-block">
+    <div class="title">life archived</div>
+    <div class="subtitle">a fragmented memory bank<br>flickering in the dark</div>
   </div>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container" id="slideshow">
+    <a class="arrow prev" onclick="changeSlide(-1)">❮</a>
+    <a class="arrow next" onclick="changeSlide(1)">❯</a>
+  </div>
+
+  <!-- Backlink -->
+  <a href="/" class="backlink">← return home</a>
 
   <!-- Slideshow Script -->
   <script>
     const slideshow = document.getElementById('slideshow');
-    const totalSlides = 61; // Update this to your total number of images
+    const totalSlides = 61; // Adjust to your total images
     const folder = "images02/";
     const extensions = [".jpg", ".jpeg", ".png"];
     let slideIndex = 0;
@@ -184,7 +172,7 @@
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
-      slides[index].style.display = "flex";
+      if (slides.length) slides[index].style.display = "flex";
     }
 
     function changeSlide(n) {
