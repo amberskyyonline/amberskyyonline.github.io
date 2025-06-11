@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Welc0m2MYspace</title>
-
   <style>
     @font-face {
       font-family: 'NextCustom';
-      src: url('https://raw.githubusercontent.com/amberskyyonline/amberskyyonline.github.io/main/font/next_custom.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
+      src: url('https://amberskyyonline.github.io/main/font/next_custom.woff') format('woff');
     }
 
     body {
@@ -87,11 +84,6 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
     .online {
       display: inline-flex;
       align-items: center;
@@ -118,13 +110,6 @@
       padding: 15px;
     }
 
-    .top8 h4 {
-      background-color: #437B09;
-      color: #000;
-      padding: 5px;
-      margin-bottom: 15px;
-    }
-
     .top8-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -135,7 +120,7 @@
     .friend img {
       width: 100%;
       border: 2px solid #294907;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
     }
 
@@ -161,7 +146,6 @@
 </head>
 <body>
 
-<!-- Evil Monkey Cursor Badge -->
 <a href="https://www.cursors-4u.com/cursor/2011/02/06/evil-monkey-family-guy.html" target="_blank" title="Evil Monkey - Family Guy">
   <img src="https://cur.cursors-4u.net/cursor.png" alt="Evil Monkey - Family Guy" style="position:absolute; top: 0px; right: 0px; z-index:999;">
 </a>
@@ -195,7 +179,7 @@
       <div class="section">
         <h4>About me:</h4>
         <p>27. NYC.</p>
-        <a href="http://www.JellyMuffin.com/images/misc_graphics/" rel="ugc">
+        <a href="http://www.JellyMuffin.com/images/misc_graphics/">
           <img src="https://external-media.spacehey.net/media/s2hlaZvhUjS2EdjSDoz42-yGVo0sNGrEr5U6NBDZpyc4=/http://images.jellymuffin.com/images/misc_graphics/images/apic147.jpg" alt="JellyMuffin graphic">
         </a>
       </div>
@@ -203,10 +187,10 @@
       <div class="section">
         <h4>Who I'd like to meet:</h4>
         <p>my future self</p>
-        <a href="http://www.JellyMuffin.com/images/animated/" rel="ugc">
+        <a href="http://www.JellyMuffin.com/images/animated/">
           <img src="https://external-media.spacehey.net/media/skesfrxrNJ6O2DDZshzdCGGDDtgbK7gUtqPJNNPtcBjE=/http://images.jellymuffin.com/images/animated/images/animated71.gif" alt="JellyMuffin animated">
         </a>
-        <a href="http://www.JellyMuffin.com/images/puerto_rican/" rel="ugc">
+        <a href="http://www.JellyMuffin.com/images/puerto_rican/">
           <img src="https://external-media.spacehey.net/media/ssWEZll9DxMVXZAUI4_G0RlwOnq5ffUANfV_m6NlZ3f8=/http://images.jellymuffin.com/images/puerto_rican/images/123.gif" alt="Puerto Rican pride">
         </a>
       </div>
@@ -234,16 +218,11 @@
   </div>
 </div>
 
-<!-- Audio + Visualizer Script -->
 <script>
   const playlist = [
     "https://od.lk/s/OTBfNDMzOTE1MzRf/Pharrell%20%20Feat%20Snoop%20Dogg%20-That%20Girl.mp3",
-    "https://od.lk/s/OTBfNDQ2MzI4NDZf/Nelly%20Furtado%20-%20Promiscuous%20%28Official%20Music%20Video%29%20ft.%20Timbaland.mp3",
-    "https://od.lk/s/OTBfNDMzOTE1MzVf/Fergie%20-%20London%20Bridge%20%28oh%20shit%29%20%20HQ.mp3",
-    "https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3",
-    "https://od.lk/s/OTBfNDMzOTE4OTJf/Viva%20La%20White%20Girl.mp3",
-    "https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3",
-    "https://od.lk/s/OTBfNDQ2MzI4ODBf/Slow%20Down%20%28Radio%20Edit%29.mp3"
+    "https://od.lk/s/OTBfNDQ2MzI4NDZf/Nelly%20Furtado%20-%20Promiscuous.mp3",
+    "https://od.lk/s/OTBfNDMzOTE1MzVf/Fergie%20-%20London%20Bridge.mp3"
   ];
 
   let current = 0;
@@ -252,7 +231,6 @@
   const ctx = canvas.getContext('2d');
 
   player.src = playlist[current];
-  player.play();
 
   player.addEventListener('ended', () => {
     current = (current + 1) % playlist.length;
@@ -260,35 +238,37 @@
     player.play();
   });
 
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const source = audioCtx.createMediaElementSource(player);
-  const analyser = audioCtx.createAnalyser();
-  source.connect(analyser);
-  analyser.connect(audioCtx.destination);
-  analyser.fftSize = 256;
+  window.addEventListener('click', () => {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const source = audioCtx.createMediaElementSource(player);
+    const analyser = audioCtx.createAnalyser();
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    analyser.fftSize = 256;
 
-  const bufferLength = analyser.frequencyBinCount;
-  const dataArray = new Uint8Array(bufferLength);
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
 
-  function draw() {
-    requestAnimationFrame(draw);
-    analyser.getByteFrequencyData(dataArray);
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    const barWidth = (canvas.width / bufferLength) * 2.5;
-    let x = 0;
-    for (let i = 0; i < bufferLength; i++) {
-      const barHeight = dataArray[i];
-      const r = barHeight + 25;
-      const g = 250 * (i / bufferLength);
-      const b = 50;
-      ctx.fillStyle = `rgb(${r},${g},${b})`;
-      ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
-      x += barWidth + 1;
+    function draw() {
+      requestAnimationFrame(draw);
+      analyser.getByteFrequencyData(dataArray);
+      ctx.fillStyle = 'black';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const barWidth = (canvas.width / bufferLength) * 2.5;
+      let x = 0;
+      for (let i = 0; i < bufferLength; i++) {
+        const barHeight = dataArray[i];
+        const r = barHeight + 25;
+        const g = 250 * (i / bufferLength);
+        const b = 50;
+        ctx.fillStyle = `rgb(${r},${g},${b})`;
+        ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
+        x += barWidth + 1;
+      }
     }
-  }
 
-  draw();
+    draw();
+  }, { once: true });
 </script>
 
 <!-- iPod Winner badge -->
