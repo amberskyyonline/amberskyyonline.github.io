@@ -8,12 +8,10 @@
       margin: 0;
       background: black;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       overflow: hidden;
     }
-    #landing, #slideshow {
+
+    #landing, #gallery {
       position: absolute;
       top: 0;
       left: 0;
@@ -23,19 +21,44 @@
       justify-content: center;
       align-items: center;
     }
+
     #landing img {
       width: 300px;
       cursor: pointer;
     }
-    #slideshow {
+
+    #gallery {
       display: none;
-      flex-direction: column;
     }
-    #slideshow img {
-      max-width: 90vw;
-      max-height: 90vh;
-      border: 2px solid white;
+
+    .polaroid {
+      position: absolute;
+      width: 180px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+      transform: rotate(var(--angle));
+      transition: transform 0.2s ease;
     }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.05);
+      z-index: 10;
+    }
+
+    .polaroid img {
+      width: 100%;
+      display: block;
+    }
+
+    .caption {
+      font-family: "Comic Sans MS", cursive;
+      font-size: 14px;
+      text-align: center;
+      color: black;
+      margin-top: 5px;
+    }
+
     audio {
       display: none;
     }
@@ -48,27 +71,42 @@
     <img src="https://github.com/amberskyyonline/amberskyyonline.github.io/blob/main/images03/Libras.gif?raw=true" alt="Libra" onclick="startGallery()">
   </div>
 
-  <!-- Slideshow Page -->
-  <div id="slideshow">
-    <img id="slide" src="img1.jpg" alt="Gallery Image">
+  <!-- Polaroid Gallery -->
+  <div id="gallery">
+    <!-- Polaroid 1 -->
+    <div class="polaroid" style="top: 60px; left: 80px; --angle: -10deg;">
+      <img src="img1.gif" alt="Libra 1">
+      <div class="caption">balance</div>
+    </div>
+
+    <!-- Polaroid 2 -->
+    <div class="polaroid" style="top: 150px; left: 200px; --angle: 8deg;">
+      <img src="img2.gif" alt="Libra 2">
+      <div class="caption">beauty</div>
+    </div>
+
+    <!-- Polaroid 3 -->
+    <div class="polaroid" style="top: 100px; left: 350px; --angle: -4deg;">
+      <img src="img3.gif" alt="Libra 3">
+      <div class="caption">venusians</div>
+    </div>
+
+    <!-- Polaroid 4 -->
+    <div class="polaroid" style="top: 220px; left: 120px; --angle: 12deg;">
+      <img src="img4.gif" alt="Libra 4">
+      <div class="caption">drama</div>
+    </div>
+
     <audio id="music" autoplay loop>
-  <source src="https://github.com/amberskyyonline/amberskyyonline.github.io/raw/main/music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" type="audio/mpeg">
-</audio>
+      <source src="https://github.com/amberskyyonline/amberskyyonline.github.io/raw/main/music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
   <script>
-    const images = ["img1.jpg", "img2.jpg", "img3.jpg"];
-    let current = 0;
-
     function startGallery() {
       document.getElementById('landing').style.display = 'none';
-      document.getElementById('slideshow').style.display = 'flex';
+      document.getElementById('gallery').style.display = 'block';
       document.getElementById('music').play();
-
-      setInterval(() => {
-        current = (current + 1) % images.length;
-        document.getElementById('slide').src = images[current];
-      }, 3000); // change every 3 sec
     }
   </script>
 
