@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Libra Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #landing, #slideshow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #landing img {
+      width: 300px;
+      cursor: pointer;
+    }
+    #slideshow {
+      display: none;
+      flex-direction: column;
+    }
+    #slideshow img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border: 2px solid white;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Page -->
+  <div id="landing">
+    <img src="libra.gif" alt="Libra" onclick="startGallery()">
+  </div>
+
+  <!-- Slideshow Page -->
+  <div id="slideshow">
+    <img id="slide" src="img1.jpg" alt="Gallery Image">
+    <audio id="music" autoplay loop>
+      <source src="audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script>
+    const images = ["img1.jpg", "img2.jpg", "img3.jpg"];
+    let current = 0;
+
+    function startGallery() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('slideshow').style.display = 'flex';
+      document.getElementById('music').play();
+
+      setInterval(() => {
+        current = (current + 1) % images.length;
+        document.getElementById('slide').src = images[current];
+      }, 3000); // change every 3 sec
+    }
+  </script>
+
+</body>
+</html>
