@@ -5,10 +5,8 @@ let visualizer, presetList;
 button.addEventListener('click', async () => {
   button.style.display = 'none';
 
-  // Start audio
   await audio.play();
 
-  // Set up audio context
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const audioCtx = new AudioContext();
   const source = audioCtx.createMediaElementSource(audio);
@@ -16,27 +14,26 @@ button.addEventListener('click', async () => {
   source.connect(analyser);
   analyser.connect(audioCtx.destination);
 
-  // Create canvas
+  // Canvas
   const canvas = document.createElement('canvas');
   document.body.appendChild(canvas);
 
-  // Init visualizer
-  visualizer = butterchurn.createVisualizer(audioCtx, canvas, {
+  // Create Butterchurn visualizer (NOTE: .default)
+  visualizer = butterchurn.default.createVisualizer(audioCtx, canvas, {
     width: window.innerWidth,
     height: window.innerHeight,
     pixelRatio: window.devicePixelRatio || 1
   });
 
-  // Resize on window resize
+  // Resize support
   window.addEventListener('resize', () => {
     visualizer.setRendererSize(window.innerWidth, window.innerHeight);
   });
 
-  // Load presets
+  // Load and start preset
   presetList = await butterchurnPresets.getPresets();
   const presetKeys = Object.keys(presetList);
-  const randomPreset = presetList[presetKeys[Math.floor(Math.random() * presetKeys.length)]];
-
+  const preset = presetList[presetKeys[Math.floor(Math.random() * presetKeys.length)]];
   visualizer.connectAudio(analyser);
-  visualizer.loadPreset(randomPreset, 0.0); // 0.0 = no blend transition
+  visualizer.loadPreset(preset, 0.0);
 });
