@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Visualizer</title>
+  <title>Butterchurn Visualizer</title>
   <style>
     html, body {
       margin: 0;
@@ -11,19 +11,41 @@
       overflow: hidden;
     }
     canvas {
-      display: block;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
       pointer-events: none;
+    }
+    #startBtn {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      padding: 20px;
+      z-index: 10;
+      background: black;
+      color: white;
+      border: 2px solid white;
+      cursor: pointer;
     }
   </style>
 
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <!-- Butterchurn Core + Presets -->
+  <script src="https://unpkg.com/butterchurn/lib/butterchurn.min.js"></script>
+  <script src="https://unpkg.com/butterchurn-presets/lib/butterchurnPresets.min.js"></script>
 </head>
 <body>
 
-  <!-- Audio element (YOUR LINK GOES HERE) -->
-  <audio id="audio" src="https://od.lk/s/OTBfNDQ2MzI2OTRf/Sly%20%26%20The%20Family%20Stone%20-%20Que%20Sera%2C%20Sera%20%28Whatever%20Will%20Be%2C%20Will%20Be%29.mp3" autoplay loop></audio>
+  <!-- Button to start audio -->
+  <button id="startBtn">enter</button>
 
+  <!-- Audio -->
+  <audio id="audio" src="https://od.lk/s/OTBfNDQ2ODU2NTFf/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" preload="auto" loop></audio>
+
+  <!-- Canvas is created dynamically in script.js -->
   <script src="script.js"></script>
 </body>
 </html>
