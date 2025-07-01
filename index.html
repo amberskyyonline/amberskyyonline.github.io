@@ -161,7 +161,13 @@
       z-index: 0;
     }
   </style>
-
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none; /* ← KEY FIX */
+}
   <!-- Landing -->
   <div class="landing" id="landingScreen">
     <button id="enterButton">enter</button>
