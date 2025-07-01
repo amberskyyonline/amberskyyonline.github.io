@@ -2,210 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>amberskyy.online</title>
+  <title>fake caustics in webgl</title>
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
-      background: black;
       overflow: hidden;
-      font-family: Helvetica, sans-serif;
-    }
-
-    .landing {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
       background: black;
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 1s ease;
     }
-
-    .landing button {
-      background: none;
-      border: 2px solid white;
-      color: white;
-      padding: 15px 30px;
-      font-size: 18px;
-      letter-spacing: 2px;
-      cursor: pointer;
-    }
-
-    .landing button:hover {
-      background: white;
-      color: black;
-    }
-
-    .slideshow {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 80vw;
-      height: 80vh;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-
-    .slideshow img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      opacity: 0;
-      animation: fade 36s infinite;
-    }
-
-    .slideshow img:nth-child(1) { animation-delay: 0s; }
-    .slideshow img:nth-child(2) { animation-delay: 4s; }
-    .slideshow img:nth-child(3) { animation-delay: 8s; }
-    .slideshow img:nth-child(4) { animation-delay: 12s; }
-    .slideshow img:nth-child(5) { animation-delay: 16s; }
-    .slideshow img:nth-child(6) { animation-delay: 20s; }
-
-    @keyframes fade {
-      0% { opacity: 0; }
-      8% { opacity: 1; }
-      20% { opacity: 1; }
-      28% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    .text {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 24px;
-      letter-spacing: 2px;
-      text-align: center;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-
-    .navbar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-      background: transparent;
-      padding: 15px 0;
-      opacity: 0;
-      transition: opacity 2s ease;
-    }
-
-    .navbar .dropdown {
-      display: inline-block;
-      position: relative;
-    }
-
-    .navbar a, .navbar .dropbtn {
-      background: black;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border: none;
-      font-size: 14px;
-      letter-spacing: 1px;
-      cursor: pointer;
-    }
-
-    .navbar a:hover, .navbar .dropbtn:hover {
-      background: white;
-      color: black;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: black;
-      min-width: 160px;
-      z-index: 2;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 10px;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .dropdown-content a:hover {
-      background-color: white;
-      color: black;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
     canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
+      display: block;
+      pointer-events: none;
     }
   </style>
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  pointer-events: none; /* ← KEY FIX */
-}
-  <!-- Landing -->
-  <div class="landing" id="landingScreen">
-    <button id="enterButton">enter</button>
-  </div>
 
-  <!-- Audio -->
-  <audio id="audioPlayer" loop style="display: none;">
-    <source src="">
-  </audio>
-
-  <!-- Slideshow -->
-  <div class="slideshow" id="slideshow">
-    <img src="images01/IMG_6155.jpg">
-    <img src="images01/IMG_6156.jpg">
-    <img src="images01/IMG_6157.jpg">
-    <img src="images01/IMG_6159.jpg">
-    <img src="images01/IMG_6161.jpg">
-    <img src="images01/IMG_6162.jpg">
-  </div>
-
-  <!-- Text -->
-  <div class="text" id="floatingText">searching</div>
-
-  <!-- Navbar -->
-  <div class="navbar" id="navbar">
-    <a href="/libra.html">me</a>
-    <a href="/contact.html">contact</a>
-    <div class="dropdown">
-      <button class="dropbtn">gallery</button>
-      <div class="dropdown-content">
-        <a href="https://amberskyy.online/mo0veez">mo0veez</a>
-        <a href="https://amberskyy.online/ip0dshuffle">ip0dshuffle</a>
-      </div>
-    </div>
-    <a href="https://freexonemag.wordpress.com/" target="_blank">blog</a>
-    <a href="https://charade212.com/" target="_blank">shop</a>
-  </div>
-
+  <!-- Three.js r149 -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+</head>
+<body>
   <script src="script.js"></script>
 </body>
 </html>
