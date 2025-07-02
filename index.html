@@ -1,51 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>amberskyyonline</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
-    #startBtn {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-      padding: 20px;
-      z-index: 10;
-      background: black;
-      color: white;
-      border: 2px solid white;
-      cursor: pointer;
-    }
-  </style>
+const button = document.getElementById('startBtn');
+const audio = document.getElementById('audio');
+let visualizer;
 
-  <!-- Butterchurn Core + Presets -->
-  <script src="https://unpkg.com/butterchurn@2.6.7/lib/butterchurn.min.js"></script>
-  <script src="https://unpkg.com/butterchurn-presets@2.6.7/lib/butterchurnPresets.min.js"></script>
-</head>
-<body>
+button.addEventListener('click', async () => {
+  button.style.display = 'none';
 
-  <!-- Enter Button -->
-  <button id="startBtn">enter</button>
+  await audio.play();
 
-  <!-- Local Audio -->
-  <audio id="audio" src="music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" preload="auto" loop></audio>
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+  const source = audioCtx.createMediaElementSource(audio);
+  const analyser = audioCtx.createAnalyser();
 
-<script src="butterchurn.js"></script>
-</body>
-</html>
+  source.connect(analyser);
+  analyser.connect(audioCtx.destination);
+
+  const canvas = document.createElement('canvas');
+  document.body.appendChild(canvas);
+
+  // ✅ Butterchurn core
+  visualizer = butterchurn.default.createVisualizer(audioCtx, canvas, {
+    width: window.innerWidth,
+    height: window.innerHeight,
+    pixelRatio: window.devicePixelRatio || 1
+  });
+
+  window.addEventListener('resize', () => {
+    visualizer.setRendererSize(window.innerWidth, window.innerHeight);
+  });
+
+  // ✅ Butterchurn presets (FIXED: use .default)
+  const presets = await butterchurnPresets.default.getPresets();
+  const keys = Object.keys(presets);
+  const random = presets[keys[Math.floor(Math.random() * keys.length)]];
+
+  visualizer.connectAudio(analyser);
+  visualizer.loadPreset(random, 0.0);
+});
