@@ -29,8 +29,8 @@ button.addEventListener('click', async () => {
     visualizer.setRendererSize(window.innerWidth, window.innerHeight);
   });
 
-  // Load random preset + connect audio
-  const presets = await butterchurnPresets.getPresets();
+  // ✅ FIXED: presets via .default
+  const presets = await butterchurnPresets.default.getPresets();
   const keys = Object.keys(presets);
   const random = presets[keys[Math.floor(Math.random() * keys.length)]];
 
