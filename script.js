@@ -29,7 +29,7 @@ button.addEventListener('click', async () => {
     visualizer.setRendererSize(window.innerWidth, window.innerHeight);
   });
 
-  const presets = await butterchurnPresets.default.getPresets();
+const presets = await window.butterchurnPresets.getPresets();
   const keys = Object.keys(presets);
   const random = presets[keys[Math.floor(Math.random() * keys.length)]];
 
