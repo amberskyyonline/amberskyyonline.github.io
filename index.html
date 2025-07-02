@@ -1,39 +1,72 @@
-const button = document.getElementById('startBtn');
-const audio = document.getElementById('audio');
-let visualizer;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>amberskyyonline</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      overflow: hidden;
+    }
 
-button.addEventListener('click', async () => {
-  button.style.display = 'none';
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
 
-  await audio.play();
+    #startBtn {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      padding: 20px;
+      z-index: 10;
+      background: black;
+      color: white;
+      border: 2px solid white;
+      cursor: pointer;
+    }
 
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
-  const source = audioCtx.createMediaElementSource(audio);
-  const analyser = audioCtx.createAnalyser();
+    #overlayText {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 14px;
+      letter-spacing: 3px;
+      opacity: 0.7;
+      z-index: 2;
+      font-family: monospace;
+    }
+  </style>
 
-  source.connect(analyser);
-  analyser.connect(audioCtx.destination);
+  <!-- Butterchurn Core + Presets -->
+  <script src="https://unpkg.com/butterchurn@2.6.7/lib/butterchurn.min.js"></script>
+  <script src="https://unpkg.com/butterchurn-presets@2.6.7/lib/butterchurnPresets.min.js"></script>
+</head>
+<body>
 
-  const canvas = document.createElement('canvas');
-  document.body.appendChild(canvas);
+  <!-- Enter Button -->
+  <button id="startBtn">enter</button>
 
-  // ✅ Butterchurn core
-  visualizer = butterchurn.default.createVisualizer(audioCtx, canvas, {
-    width: window.innerWidth,
-    height: window.innerHeight,
-    pixelRatio: window.devicePixelRatio || 1
-  });
+  <!-- Audio -->
+  <audio id="audio" src="music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" preload="auto" loop></audio>
 
-  window.addEventListener('resize', () => {
-    visualizer.setRendererSize(window.innerWidth, window.innerHeight);
-  });
+  <!-- Overlay Text -->
+  <div id="overlayText">amberskyy.online</div>
 
-  // ✅ Butterchurn presets (FIXED: use .default)
-  const presets = await butterchurnPresets.default.getPresets();
-  const keys = Object.keys(presets);
-  const random = presets[keys[Math.floor(Math.random() * keys.length)]];
-
-  visualizer.connectAudio(analyser);
-  visualizer.loadPreset(random, 0.0);
-});
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
