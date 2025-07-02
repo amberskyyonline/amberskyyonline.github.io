@@ -12,7 +12,8 @@
     }
     canvas {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       z-index: 0;
@@ -34,18 +35,17 @@
   </style>
 
   <!-- Butterchurn Core + Presets -->
-  <script src="https://unpkg.com/butterchurn/lib/butterchurn.min.js"></script>
-  <script src="https://unpkg.com/butterchurn-presets/lib/butterchurnPresets.min.js"></script>
+  <script src="https://unpkg.com/butterchurn@2.6.7/lib/butterchurn.min.js"></script>
+  <script src="https://unpkg.com/butterchurn-presets@2.6.7/lib/butterchurnPresets.min.js"></script>
 </head>
 <body>
 
-  <!-- Button to start audio -->
+  <!-- Enter Button -->
   <button id="startBtn">enter</button>
 
-  <!-- Audio -->
-<audio id="audio" src="music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" preload="auto" loop></audio>
+  <!-- Local Audio -->
+  <audio id="audio" src="music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" preload="auto" loop></audio>
 
-  <!-- Canvas is created dynamically in script.js -->
   <script src="script.js"></script>
 </body>
 </html>
