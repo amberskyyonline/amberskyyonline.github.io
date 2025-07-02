@@ -19,7 +19,7 @@ button.addEventListener('click', async () => {
   document.body.appendChild(canvas);
   setTimeout(() => (canvas.style.opacity = 1), 100);
 
-  visualizer = butterchurn.default.createVisualizer(audioCtx, canvas, {
+  visualizer = butterchurn.createVisualizer(audioCtx, canvas, {
     width: window.innerWidth,
     height: window.innerHeight,
     pixelRatio: window.devicePixelRatio || 1
@@ -29,7 +29,7 @@ button.addEventListener('click', async () => {
     visualizer.setRendererSize(window.innerWidth, window.innerHeight);
   });
 
-const presets = await window.butterchurnPresets.getPresets();
+  const presets = await window.butterchurnPresets.getPresets();
   const keys = Object.keys(presets);
   const random = presets[keys[Math.floor(Math.random() * keys.length)]];
 
