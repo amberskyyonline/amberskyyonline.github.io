@@ -1,72 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>amberskyy.online</title>
+  <meta charset="UTF-8">
+  <title>Libra</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       background: black;
+      height: 100vh;
       overflow: hidden;
     }
 
-    canvas {
-      position: fixed;
+    #landing, #gallery {
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 2s ease;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    #startBtn {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-      padding: 20px;
-      z-index: 10;
-      background: black;
-      color: white;
-      border: 2px solid white;
+    #landing img {
+      width: 300px;
       cursor: pointer;
     }
 
-    #overlayText {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
+    #gallery {
+      display: none;
+    }
+
+    .polaroid {
+      position: absolute;
+      width: 180px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+      transform: rotate(var(--angle));
+      transition: transform 0.2s ease;
+    }
+
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.05);
+      z-index: 10;
+    }
+
+    .polaroid img {
+      width: 100%;
+      display: block;
+    }
+
+    .caption {
+      font-family: "Comic Sans MS", cursive;
       font-size: 14px;
-      letter-spacing: 3px;
-      opacity: 0.7;
-      z-index: 2;
-      font-family: monospace;
+      text-align: center;
+      color: black;
+      margin-top: 5px;
+    }
+
+    audio {
+      display: none;
     }
   </style>
-
-  <!-- Butterchurn Core + Presets -->
-  <script src="https://unpkg.com/butterchurn@2.6.7/lib/butterchurn.min.js"></script>
-  <script src="https://unpkg.com/butterchurn-presets@2.6.7/lib/butterchurnPresets.min.js"></script>
 </head>
 <body>
 
-  <!-- Enter Button -->
-  <button id="startBtn">enter</button>
+  <!-- Landing Page -->
+  <div id="landing">
+    <img src="https://github.com/amberskyyonline/amberskyyonline.github.io/blob/main/images03/Libras.gif?raw=true" alt="Libra" onclick="startGallery()">
+  </div>
 
-  <!-- Audio -->
-  <audio id="audio" src="music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" preload="auto" loop></audio>
+  <!-- Polaroid Gallery -->
+  <div id="gallery">
+    <!-- Polaroid 1 -->
+    <div class="polaroid" style="top: 60px; left: 80px; --angle: -10deg;">
+      <img src="img1.gif" alt="Libra 1">
+      <div class="caption">balance</div>
+    </div>
 
-  <!-- Overlay Text -->
-  <div id="overlayText">amberskyy.online</div>
+    <!-- Polaroid 2 -->
+    <div class="polaroid" style="top: 150px; left: 200px; --angle: 8deg;">
+      <img src="img2.gif" alt="Libra 2">
+      <div class="caption">beauty</div>
+    </div>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+    <!-- Polaroid 3 -->
+    <div class="polaroid" style="top: 100px; left: 350px; --angle: -4deg;">
+      <img src="img3.gif" alt="Libra 3">
+      <div class="caption">venusians</div>
+    </div>
+
+    <!-- Polaroid 4 -->
+    <div class="polaroid" style="top: 220px; left: 120px; --angle: 12deg;">
+      <img src="img4.gif" alt="Libra 4">
+      <div class="caption">drama</div>
+    </div>
+
+    <audio id="music" autoplay loop>
+      <source src="https://github.com/amberskyyonline/amberskyyonline.github.io/raw/main/music/Miss%20Kittin%20%26%20The%20Hacker%20-%201982.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    function startGallery() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('gallery').style.display = 'block';
+      document.getElementById('music').play();
+    }
+  </script>
+
 </body>
 </html>
