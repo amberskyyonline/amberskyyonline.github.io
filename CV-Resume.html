@@ -1,44 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amber Skyy Diaz - CV</title>
+  <link rel="icon" href="💿">
 <style>
+  /* ────────── ✦ BASE RESET ✦ ────────── */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('https://cur.cursors-4u.net/user/use-1/use164.cur'), auto !important;
+  }
 
-</style>
+  body {
+    background-image: url("https://i.pinimg.com/736x/a9/5a/bf/a95abf84bc3785d07c6c396d579252d3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    color: #294907;
+    font-family: "Andale Mono", monospace;
+    line-height: 1.6;
+    padding: 2rem;
+  }
 
+  /* CRT scanline overlay */
+  body::before {
+    content: ' ';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    z-index: 100;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
 
-<style>
-body::before {
-  content: ' ';
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
-  z-index: 100;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-}
-</style>
-<style>* {cursor: url(https://cur.cursors-4u.net/user/use-1/use164.cur), auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2011/02/06/evil-monkey-family-guy.html" target="_blank" title="Evil Monkey - Family Guy"><img src="https://cur.cursors-4u.net/cursor.png" alt="Evil Monkey - Family Guy" style="position:absolute; top: 0px; right: 0px;"/></a>
-<style>
-  
-  body{
-  background-image: url("https://i.pinimg.com/736x/a9/5a/bf/a95abf84bc3785d07c6c396d579252d3.jpg")}
-  main{background-color:#6eb920}
-  .top{background-color: #000000 !important;}
- .heading{background-color: #437B09 !important;}
-  h4{background-color: #437B09 !important;}
-  .links{background-color: #437B09 !important;}
-  .top input{background-color: #6eb920 !important;}
-  
-  
-    h1{color: #294907 !important;}
-  h1{font-size: 30px !important;}
-  h3{color: #294907 !important;}
-  h4{color: #000000 !important;}
-  p{color: #294907 !important;}
-b .count{color: #000000 !important;}
-   .url-info b{color: #000000 !important;}
-.links{font-size:15px !important;}
-  body{color: #000000 !important;}
-  body{font-family: andale mono !important;}
+  /* ────────── ✦ HEADER ✦ ────────── */
+  header.top {
+    background-color: #000;
+    padding: 1rem;
+    border-bottom: 2px solid #6eb920;
+    text-align: center;
+  }
+
+  h1 {
+    color: #6eb920;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    color: #437B09;
+    font-size: 18px;
+    margin-top: 0.5rem;
+  }
+
+  /* ────────── ✦ MAIN LAYOUT ✦ ────────── */
+  main {
+    background-color: #6eb920;
+    padding: 2rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000066;
+  }
+
+  section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #437B09;
+    border-radius: 6px;
+  }
+
+  h4 {
+    background-color: #437B09;
+    color: #000;
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #000;
+  }
+
+  p, ul, li {
+    color: #294907;
+    font-size: 15px;
+  }
+
+  ul {
+    list-style-type: square;
+    padding-left: 1.2rem;
+  }
+
+  .links, .contact {
+    background-color: #437B09;
+    font-size: 15px;
+  }
+
+  /* ────────── ✦ CURSOR ICON IN CORNER ✦ ────────── */
+  .evil-cursor-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 200;
+  }
+
+  /* ────────── ✦ PRINT STYLES ✦ ────────── */
+  @media print {
+    body::before,
+    .evil-cursor-img,
+    .top input,
+    audio,
+    nav {
+      display: none !important;
+    }
+
+    body {
+      background: #fff !important;
+      color: #000 !important;
+      font-family: Georgia, serif !important;
+    }
+
+    main {
+      background-color: #fff !important;
+      box-shadow: none !important;
+      padding: 0;
+    }
+
+    h1, h3, h4, p, ul, li {
+      color: #000 !important;
+    }
+
+    section {
+      background-color: #fff !important;
+      border: none !important;
+    }
+  }
   </style>
+</head>
+<body>
+
+  <header class="top">
+    <h1>Amber Skyy Diaz</h1>
+    <h3>Luxury Retail / Artist / Subculture Documentarian</h3>
+  </header>
+
+  <main>
+    <section class="about">
+      <h4>About Me</h4>
+      <p>Multidisciplinary creative and luxury fashion veteran with 10+ years in high-end retail, visual curation, and Y2K archive obsession. I make art, websites, and wearable objects of devotion.</p>
+    </section>
+
+    <section class="experience">
+      <h4>Work Experience</h4>
+      <ul>
+        <li><b>Issey Miyake – Assistant Store Manager</b> (2022–2024)</li>
+        <li><b>R13 Denim – Keyholder</b> (2020–2022)</li>
+        <li><b>Bergdorf Goodman – Stock/Recovery</b> (2016–2020)</li>
+      </ul>
+    </section>
+
+    <section class="education">
+      <h4>Education</h4>
+      <p>BMCC – B.A. in Communications / Minor: Leadership Studies</p>
+      <p>Cornell – Certificate in Fashion Design Management</p>
+    </section>
+
+    <section class="skills">
+      <h4>Skills & Tools</h4>
+      <p>Adobe Suite, RLM Apparel, Retail Pro9, Blender, Figma, Camcorders, Shopify</p>
+    </section>
+
+    <section class="contact links">
+      <h4>Contact</h4>
+      <p>Email: amber.diaz97@gmail.com</p>
+      <p>Location: New York, NY</p>
+      <p>Currently Playing: Nelly Furtado – “Wait For You”</p>
+    </section>
+
+  </main>
+
+</body>
+</html>
